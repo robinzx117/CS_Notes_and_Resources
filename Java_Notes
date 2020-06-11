@@ -9,7 +9,8 @@ This array is the mechanism through which the runtime system passes information 
 java MyApp arg1 arg2
 Each string in the array is called a command-line argument. Command-line arguments let users affect the operation of the application
 without recompiling it.
-
+---------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------
 Definition for singly-linked list.
  * public class ListNode {
  *     int val;
@@ -18,3 +19,26 @@ Definition for singly-linked list.
  *     ListNode(int val) { this.val = val; }
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
+---------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------
+import java.util.ArrayList;
+import java.util.Iterator;
+
+ArrayList<SomeObject> someObjects;
+SomeObject[] anArray;
+
+//iterator:
+    Iterator<SomeObject> it = someObjects.iterator();
+    while(it.hasNext())
+    {
+        SomeObject oneObject = it.next();
+        if(oneObject != null)
+        {...}
+    }
+
+//for-each loop:
+    for(SomeObject oneObject : anArray)
+    {
+        if(oneObject != null)
+        {...}
+    }
