@@ -1,3 +1,15 @@
+Access modifier:
+If we do not specify any access modifier, it becomes “package-private”.
+Package-private means the variable or method or class is accessible to its own class, and also to any other class in the same package.
+
+In the Java programming language, every application must contain a main method whose signature is:
+public static void main(String[] args)
+The main method accepts a single argument: an array of elements of type String.
+This array is the mechanism through which the runtime system passes information to your application. For example:
+java MyApp arg1 arg2
+Each string in the array is called a command-line argument. Command-line arguments let users affect the operation of the application
+without recompiling it.
+
 Definition for singly-linked list.
  * public class ListNode {
  *     int val;
