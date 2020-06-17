@@ -1,7 +1,8 @@
 Access modifier:
 If we do not specify any access modifier, it becomes “package-private”.
 Package-private means the variable or method or class is accessible to its own class, and also to any other class in the same package.
-
+---------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------
 In the Java programming language, every application must contain a main method whose signature is:
 public static void main(String[] args)
 The main method accepts a single argument: an array of elements of type String.
@@ -42,3 +43,11 @@ SomeObject[] anArray;
         if(oneObject != null)
         {...}
     }
+
+---------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------
+To get a (pseudo-) random integer between, say, 60 and 75, we can do this:
+import java.util.Random;
+Random r = new Random();
+r.nextInt(16); //0 to 15 inclusive
+r.nextInt(16) + 60; //shifted up by 60, 0-15 becomes 60-75
