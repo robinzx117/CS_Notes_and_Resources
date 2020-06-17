@@ -1,0 +1,24 @@
+Law of Demeter (LoD) or principle of least knowledge is a design guideline for developing software, particularly object-oriented programs.
+In its general form, the LoD is a specific case of loose coupling. The guideline was proposed by Ian Holland at Northeastern University
+towards the end of 1987, and can be succinctly summarized in each of the following ways:
+
+1.Each unit should have only limited knowledge about other units: only units "closely" related to the current unit.
+2.Each unit should only talk to its friends; don't talk to strangers.
+3.Only talk to your immediate friends.
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
+SOLID:
+Single-responsibility principle-单一功能原则
+A class should only have a single responsibility, that is, only changes to one part of the software's specification should be able to
+affect the specification of the class.-认为对象应该仅具有一种单一功能。
+Open–closed principle-开闭原则
+"Software entities ... should be open for extension, but closed for modification."-认为“软件体应该是对于扩展开放的，但是对于修改封闭的”。
+Liskov substitution principle-里氏替换原则
+"Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program." See
+also design by contract.-认为“程序中的对象应该是可以在不改变程序正确性的前提下被它的子类所替换的”。参考契约式设计。
+Interface segregation principle-接口隔离原则
+"Many client-specific interfaces are better than one general-purpose interface."-认为“多个特定客户端接口要好于一个宽泛用途的接口”。
+Dependency inversion principle-依赖反转原则
+One should "depend upon abstractions, [not] concretions."-认为一个方法应该遵从“依赖于抽象而不是一个实例”。依赖注入是该原则的一种实现方式。
+------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------
