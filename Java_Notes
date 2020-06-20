@@ -74,6 +74,20 @@ import java.util.HashMap;
 HashMap<String, String> hash_map;
 hash_map = new HashMap<String, String>();
 hash_map.put("Key", "Value");
+
+properties of a HashMap:
+- no duplicate keys
+- key-value pairs
+- aka dictionary
+- key maps to a value
+- RPGS methods, among other methods
+- in java.util 
+- no "order"
+---------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------
+properties of a Set:
+- no duplicate values
+- no order
 ---------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------
 To get a (pseudo-) random integer between, say, 60 and 75, we can do this:
