@@ -70,10 +70,23 @@ SomeObject[] anArray;
 ---------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
 
 HashMap<String, String> hash_map;
 hash_map = new HashMap<String, String>();
-hash_map.put("Key", "Value");
+if (hash_map != null){
+    hash_map.put("Key", "Value");
+}
+hash_map.get("Key");
+
+Set<String> stringKeys = hash_map.keySet();
+Iterator<String> it = stringKeys.iterator();
+
+while(it.hasNext()){
+    String key = it.next();
+    String value = hash_map.get(key);
+}
 
 properties of a HashMap:
 - no duplicate keys
@@ -95,3 +108,27 @@ import java.util.Random;
 Random r = new Random();
 r.nextInt(16); //0 to 15 inclusive
 r.nextInt(16) + 60; //shifted up by 60, 0-15 becomes 60-75
+---------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------
+import java.util.Scanner;
+
+int getUserInputInt() {
+    Scanner keyboardScanner;
+    keyboardScanner = new Scanner(System.in);
+    int userInt;
+    String userString;
+    System.out.print("Input the number:");
+
+    if(keyboardScanner.hasNextInt()) // integer
+    {
+        userInt = keyboardScanner.nextInt();
+        System.out.println("You input is " + userInt);
+        return userInt;
+    }
+    else // not an integer
+    {
+        userString = keyboardScanner.next();
+        System.err.println(userString + " is an error");
+        return -1;
+    }
+}
