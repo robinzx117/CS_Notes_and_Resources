@@ -88,6 +88,11 @@ while(it.hasNext()){
     String value = hash_map.get(key);
 }
 
+Set<Map.Entry<String, String>> set = hash_map.entrySet();
+for(Map.Entry<String, String> sl : set){
+    System.out.println("The key is " + sl.getKey() + " and the value is " + sl.getValue() + ".");
+}
+
 properties of a HashMap:
 - no duplicate keys
 - key-value pairs
