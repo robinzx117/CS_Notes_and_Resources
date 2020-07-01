@@ -116,6 +116,19 @@ r.nextInt(16); //0 to 15 inclusive
 r.nextInt(16) + 60; //shifted up by 60, 0-15 becomes 60-75
 ---------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------
+Parent p = new Parent();
+Child c = new Child();
+
+Parent p2 = new Child(); // Substitution
+Child c2 = new Parent(); // Problem; needs more code to make it work
+if(p3.getClass().getName().equals("Child")){ // This Parent is actually a Child
+    Child c3 = (Child)p3; // Casting makes it work
+}
+if(p4 instanceof Child){ // This Parent is a Child or other children
+    Child c4 = (Child)p4;
+}
+---------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------
 import java.util.Scanner;
 
 int getUserInputInt() {
