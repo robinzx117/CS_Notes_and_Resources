@@ -109,11 +109,29 @@ properties of a Set:
 - no order
 ---------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------
-To get a (pseudo-) random integer between, say, 60 and 75, we can do this:
-import java.util.Random;
-Random r = new Random();
-r.nextInt(16); //0 to 15 inclusive
-r.nextInt(16) + 60; //shifted up by 60, 0-15 becomes 60-75
+Class Object is the root of the class hierarchy. Every class has Object as a superclass.
+1.boolean equals(Object obj) - Indicates whether some other object is "equal to" this one.
+2.int     hashCode()         - Returns a hash code value for the object.
+3.String  toString()         - Returns a string representation of the object.
+
+public class SomeClass {
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (this.getClass() != obj.getClass()) {
+            return false;
+        }
+        SomeClass other = (SomeClass) obj;
+        // Some code here...
+        // if(){}
+        // else{}
+    }
+}
 ---------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------
 Parent p = new Parent();
@@ -127,6 +145,13 @@ if(p3.getClass().getName().equals("Child")){ // This Parent is actually a Child
 if(p4 instanceof Child){ // This Parent is a Child or other children
     Child c4 = (Child)p4;
 }
+---------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------
+To get a (pseudo-) random integer between, say, 60 and 75, we can do this:
+import java.util.Random;
+Random r = new Random();
+r.nextInt(16); //0 to 15 inclusive
+r.nextInt(16) + 60; //shifted up by 60, 0-15 becomes 60-75
 ---------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------
 import java.util.Scanner;
@@ -156,18 +181,18 @@ int getUserInputInt() {
 public void pressEnterToContinue() {
     try {
         System.in.read();
-    }  
+    }
     catch(Exception e)
-    {}  
+    {}
 }
 ---------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------    
+---------------------------------------------------------------------------------------------------------------------------------------
 import java.util.concurrent.TimeUnit;
 
 public void waitForSeconds(int numberOfSeconds) {
     try {
         TimeUnit.SECONDS.sleep(numberOfSeconds);
-    } 
+    }
     catch (InterruptedException e) {
         // TODO Auto-generated catch block
         e.printStackTrace();
