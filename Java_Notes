@@ -145,6 +145,8 @@ if(p3.getClass().getName().equals("Child")){ // This Parent is actually a Child
 if(p4 instanceof Child){ // This Parent is a Child or other children
     Child c4 = (Child)p4;
 }
+
+public class Car extends Vehicle implements Comparable<Car> {
 ---------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------
 To get a (pseudo-) random integer between, say, 60 and 75, we can do this:
