@@ -153,6 +153,25 @@ if(p4 instanceof Child){ // This Parent is a Child or other children
 public class Car extends Vehicle implements Comparable<Car> {
 ---------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------
+Exception类是Throwable类的子类。除了Exception类外，Throwable还有一个子类Error。
+
+Checked exceptions − A checked exception is an exception that is checked (notified) by the compiler at compilation-time, these are also
+called as compile time exceptions. These exceptions cannot simply be ignored, the programmer should take care of (handle) these exceptions.
+
+Unchecked exceptions − An unchecked exception is an exception that occurs at the time of execution. These are also called as Runtime Exceptions.
+These include programming bugs, such as logic errors or improper use of an API. Runtime exceptions are ignored at the time of compilation.
+
+try{
+  // 程序代码
+}catch(异常类型1 异常的变量名1){
+  // 程序代码
+}catch(异常类型2 异常的变量名2){
+  // 程序代码
+}finally{
+  // 程序代码
+}
+---------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------
 To get a (pseudo-) random integer between, say, 60 and 75, we can do this:
 import java.util.Random;
 Random r = new Random();
