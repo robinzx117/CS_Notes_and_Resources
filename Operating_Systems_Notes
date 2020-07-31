@@ -1,2 +1,30 @@
 Interrupt ReQuest(IRQ)中断请求: “紧急事件”须向处理器提出申请（发一个电脉冲信号），要求“中断”，即要求处理器先停下“自己手头的工作”先去处理“我的急件”，
                                这一“申请”过程，称——中断请求。
+---------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------
+struct Semaphore {
+  int value;
+  Queue<process> q;  // q contains all Process Control Blocks(PCBs) corresponding to processes got blocked while performing down operation.
+}
+P(Semaphore s){
+  s.value = s.value - 1;
+  if (s.value < 0) {
+    // add process to queue
+    // here p is a process which is currently executing
+    q.push(p);
+    block();
+  }
+  else
+    return;
+}
+
+V(Semaphore s){
+  s.value = s.value + 1;
+  if (s.value <= 0) {
+    // remove process p from queue
+    q.pop();
+    wakeup(p);
+  }
+  else
+    return;
+}
