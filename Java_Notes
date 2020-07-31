@@ -87,6 +87,9 @@ for(Map.Entry<String, String> sl : set){
     System.out.println("The key is " + sl.getKey() + " and the value is " + sl.getValue() + ".");
 }
 
+getOrDefault(Object key, V defaultValue)
+Is used to get the value mapped with specified key. If no value is mapped with the provided key then the default value is returned.
+
 properties of a HashMap:
 - no duplicate keys
 - key-value pairs
@@ -94,7 +97,7 @@ properties of a HashMap:
 - key maps to a value
 - RPGS methods, among other methods
 - in java.util 
-- no "order"
+- no order
 - no primitive types allowed for keys or values
 ---------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------
@@ -160,6 +163,16 @@ try{
 }finally{
   // 程序代码
 }
+
+fail():
+    1.mark a test that is incomplete, so it fails and warns you until you can finish it
+    2.making sure an exception is thrown:
+    try{
+      // do stuff...
+      fail("Exception not thrown");
+    }catch(Exception e){
+      assertTrue(e.hasSomeFlag());
+    }
 ---------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------
 To get a (pseudo-) random integer between, say, 60 and 75, we can do this:
