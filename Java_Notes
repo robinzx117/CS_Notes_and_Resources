@@ -40,6 +40,14 @@ Map接口存储一组键值对象，提供key（键）到value（值）的映射
 这是一个传统的接口和定义的方法，通过它可以枚举（一次获得一个）对象集合中的元素。这个传统接口已被迭代器取代。
 ---------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------
+List<String> list = new ArrayList<String>();
+Creates a List of type String, and the list can be potentially typecast into any other type of list. This is called decoupling. You are
+decoupling your code from a specific implementation of the interface. The advantages it provides, is when writing large amounts of code,
+you can switch between types of lists to suit your preferences (speed, memory etc), as all of your code, can treat your list as just type
+List. You can also pass a List as parameters and returns List from functions. And later on if you are not happy with the ArrayList, you
+just change that one line of code.
+---------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------
 import java.util.ArrayList;
 import java.util.Iterator;
 
