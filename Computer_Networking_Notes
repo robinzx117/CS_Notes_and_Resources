@@ -1,0 +1,3 @@
+Internet Protocol version 4(IPv4)
+IPv4 uses a 32-bit address space which provides 4,294,967,296 (2^32) unique addresses, but large blocks are reserved for special networking methods.
+Address range: 0.0.0.0–255.255.255.255
