@@ -53,23 +53,23 @@ Wide Form Data
 The wide form data below could come from a longitudinal study of BMI (Body Mass Index) in which BMI at ages 25, 30, and 40 are obtained for each subject.
 
 ID	Birth_state	BMI_25	BMI_30	BMI_40
-1	OK	26	26	27
-2	MI	23	22	28
-3	FL	21	28	25
+1           OK          26          26          27
+2           MI          23          22          28
+3           FL          21          28          25
 
 Long Form Data
 The same data in long format would appear as follows:
 
 ID	Birth_state	Age	BMI
-1	OK	25	26
-1	OK	30	26
-1	OK	40	27
-2	MI	25	23
-2	MI	30	22
-2	MI	40	28
-3	FL	25	21
-3	FL	30	28
-3	FL	40	25
+1           OK          25          26
+1           OK          30          26
+1           OK          40          27
+2           MI          25          23
+2           MI          30          22
+2           MI          40          28
+3           FL          25          21
+3           FL          30          28
+3           FL          40          25
 
 Uses of wide and long format data layouts:
 -Wide format is slightly more convenient for data entry in studies where each subject is assessed the same number of times.
