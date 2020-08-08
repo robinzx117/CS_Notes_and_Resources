@@ -2,13 +2,13 @@ Statistics: A methodological subject encompassing all aspects of learning from d
             Tools and methods for working with and understanding data.
 
 Different Perspectives:
-“art of summarizing data”
-“science of uncertainty”
-“science of decisions”
-“science of variation”
-“art of forecasting”
-“science of measurement”
-“basis for principled data collection”
+"art of summarizing data"
+"science of uncertainty"
+"science of decisions"
+"science of variation"
+"art of forecasting"
+"science of measurement"
+"basis for principled data collection"
 ---------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------
 Data: 1.Numbers 2.Images 3.Words 4.Audio
@@ -27,3 +27,10 @@ Variable Types:
 2.Categorical (or Qualitative) Variables: Classifies individuals or items into different groups.
   Ordinal – groups have an order or ranking.
   Nominal – groups are merely names, no ranking.
+---------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------
+"Study design" encompasses everything in preparation for data-driven research process.
+Types of Research Studies:
+-Exploratory versus Confirmatory studies
+-Comparative versus Non-Comparative studies
+-Observational studies versus Experiments
