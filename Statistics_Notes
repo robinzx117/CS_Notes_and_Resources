@@ -1,1 +1,21 @@
+Statistics: A methodological subject encompassing all aspects of learning from data.
+            Tools and methods for working with and understanding data.
+
+Different Perspectives:
+“art of summarizing data”
+“science of uncertainty”
+“science of decisions”
+“science of variation”
+“art of forecasting”
+“science of measurement”
+“basis for principled data collection”
+---------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------
 Data: 1.Numbers 2.Images 3.Words 4.Audio
+
+Two key types of data:
+    Organic/Process Data
+    "Designed" Data Collection
+
+For analyzing data, regardless of source, an important question:
+Q: Can the Data be considered i.i.d.? i = independent and id = identically distributed
