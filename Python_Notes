@@ -1,1 +1,15 @@
+Data Types:
+-boolean
+-integer
+-float
+-string
+-list
+-None
+-complex
+-object
+-set
+-dictionary
+...
 
+myList = ['a', 'b', 'c', 'd', 'e']
+myList.sort()
