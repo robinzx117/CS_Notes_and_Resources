@@ -22,11 +22,17 @@ Q: Can the Data be considered i.i.d.? i = independent and id = identically distr
 
 Variable Types:
 1.Quantitative Variables: Numerical, measurable quantities in which arithmetic operations often make sense.
-  Continuous – could take on any value within an interval, many possible values.
-  Discrete – countable value, finite number of values.
+  Continuous (Float(float)) – could take on any value within an interval, many possible values.
+  Discrete   (Integer(int)) – countable value, finite number of values.
 2.Categorical (or Qualitative) Variables: Classifies individuals or items into different groups.
   Ordinal – groups have an order or ranking.
+            *Only defined by how you use the data
+            *Often important when creating visuals
+            *Lists can hold ordinal information because they have indices
   Nominal – groups are merely names, no ranking.
+            (Boolean (bool))
+            (String (str))
+            (None (NoneType))
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 "Study design" encompasses everything in preparation for data-driven research process.
