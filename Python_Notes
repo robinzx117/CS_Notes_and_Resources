@@ -1,3 +1,6 @@
+https://www.python.org/doc/
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Data Types:
 -boolean
 -integer
@@ -13,3 +16,12 @@ Data Types:
 
 myList = ['a', 'b', 'c', 'd', 'e']
 myList.sort()
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+A library is a collection of functions that can be accessed to complete certain programming tasks without having to write your own algorithm.
+Numpy:       is a library for working with arrays of data.
+Pandas:      provides high-performance, easy-to-use data structures and data analysis tools.
+Scipy:       is a library of techniques for numerical and scientific computing.
+Matplotlib:  is a library for making graphs.
+Seaborn:     is a higher-level interface to Matplotlib that can be used to simplify many graphing tasks.
+Statsmodels: is a library that implements many statistical techniques.
