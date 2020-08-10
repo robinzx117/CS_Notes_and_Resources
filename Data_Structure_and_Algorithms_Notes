@@ -34,3 +34,6 @@ Two pointers: one slow-runner and one fast-runner.
 An in-place algorithm is an algorithm which transforms input using no auxiliary data structure. However a small amount of extra storage space is allowed for auxiliary variables.
 The input is usually overwritten by the output as the algorithm executes. In-place algorithm updates input sequence only through replacement or swapping of elements.
 An algorithm which is not in-place is sometimes called not-in-place or out-of-place.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
