@@ -82,3 +82,21 @@ Uses of wide and long format data layouts:
 -Long format is more flexible, as it accommodates measures obtained at arbitrary time points; the long format is also more natural for many forms of statistical analysis,
  such as regression analysis.
 Other specialized data layouts exist for other types of data, e.g. data defined as graphs (networks of nodes and edges), images, geospatial data, or text data.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Categorical Data
+-Frequency Tables: Great for numerical summaries-1.Counts 2.Percentages.
+-Bar Charts:       Great for visualization.
+-Pie Charts:       Use with caution.
+
+Quantitative Data
+-Histograms:
+ *Shape    - Overall appearance of histogram. Can be symmetric, bell-shaped, left skewed, right skewed, etc.
+ *Center   - Mean or Median.
+ *Spread   - How far our data spreads. Range, Interquartile Range (IQR), standard deviation, variance.
+ *Outliers - Data points that fall far from the bulk of the data.
+
+ Normal distribution - "Empirical Rule": 68-95-99.7
+ Standard Score = (Observation - Mean(µ)) / Standard Deviation(σ)
+
+-Boxplots: provides us a very nice graphical picture of our five-number summary.
