@@ -100,3 +100,6 @@ Quantitative Data
  Standard Score = (Observation - Mean(µ)) / Standard Deviation(σ)
 
 -Boxplots: provides us a very nice graphical picture of our five-number summary.
+ Min Q1 Median Q3 Max
+     <---IQR---->
+ <------Range------->
