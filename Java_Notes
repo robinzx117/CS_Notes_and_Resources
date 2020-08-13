@@ -1,3 +1,6 @@
+https://docs.oracle.com/javase/8/docs/api/
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Access modifier:
 If we do not specify any access modifier, it becomes “package-private”.
 Package-private means the variable or method or class is accessible to its own class, and also to any other class in the same package.
@@ -258,3 +261,9 @@ Arrays.sort(arr);
 Arrays.sort(arr, 1, 5);
 Arrays.sort(arr, Collections.reverseOrder());
 Arrays.sort() works for arrays which can be of primitive data type also. Collections.sort() works for objects Collections like ArrayList, LinkedList, etc.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+public String replaceAll(String regex, String replacement)
+-regex       匹配此字符串的正则表达式。
+-replacement 用来替换每个匹配项的字符串。
+-成功则返回替换的字符串，失败则返回原始字符串。
