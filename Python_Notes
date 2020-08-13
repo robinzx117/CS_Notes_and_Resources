@@ -19,9 +19,28 @@ myList.sort()
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 A library is a collection of functions that can be accessed to complete certain programming tasks without having to write your own algorithm.
-Numpy:       is a library for working with arrays of data.
-Pandas:      provides high-performance, easy-to-use data structures and data analysis tools.
-Scipy:       is a library of techniques for numerical and scientific computing.
-Matplotlib:  is a library for making graphs.
-Seaborn:     is a higher-level interface to Matplotlib that can be used to simplify many graphing tasks.
+
+Numpy: is a library for working with arrays of data. It is the fundamental package for scientific computing with Python.
+ It contains among other things:
+ -a powerful N-dimensional array object
+ -sophisticated (broadcasting) functions
+ -tools for integrating C/C++ and Fortran code
+ -useful linear algebra, Fourier transform, and random number capabilities
+
+Pandas: provides high-performance, easy-to-use data structures and data analysis tools.
+
+Scipy: is a library of techniques for numerical and scientific computing.
+ Numpy provides a high-performance multi-dimensional array and basic tools to compute with and manipulate these arrays. SciPy builds on this, and provides a large number of
+ functions that operate on numpy arrays and are useful for different types of scientific and engineering applications.
+ *SciPy.Stats: contains a large number of probability distributions as well as a growing library of statistical functions such as:
+  -Continuous and Discrete Distributions (i.e Normal, Uniform, Binomial, etc.)
+  -Descriptive Statistcs
+  -Statistical Tests (i.e T-Test)
+
+Matplotlib: is a library for making graphs.
+
+Seaborn: is a higher-level interface to Matplotlib that can be used to simplify many graphing tasks. It is complimentary to Matplotlib and it specifically targets statistical
+ data visualization. But it goes even further than that: Seaborn extends Matplotlib and makes generating visualizations convenient. While Matplotlib is a robust solution for
+ various problems, Seaborn utilizes more concise paramesters for ease-of-use.
+
 Statsmodels: is a library that implements many statistical techniques.
