@@ -7,6 +7,8 @@ Definition for singly-linked list.
  *     ListNode(int val) { this.val = val; }
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
+ Dummy node: a dummy node at the front/end of the linked-list that is there only to reduce the need for special-case code in the linked-list operations. It is an empty template
+ to build new nodes later.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Definition for a binary tree node.
