@@ -103,3 +103,27 @@ Quantitative Data
  Min Q1 Median Q3 Max
      <---IQR---->
  <------Range------->
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Multivariate Categorical Data:
+1.Two-way or Contingency Tables.
+2.Marginal and Conditional Distributions.
+3.Graphs: Bar Charts, Side-by-side Bar Charts, Stacked Bar Charts, and Mosaic Plots.
+
+Multivariate Quantitative Data:
+Scatterplot:
+*Association-Type:
+ -Linear association:    the pattern is a line.
+ -Quadratic association: the pattern is parabolic.
+ -No association:        there is no pattern.
+*Association-Direction:
+ -Positive linear association.
+ -Negative linear association.
+*Association-Strength:
+ -Weak linear association:     points are largely scattered along a line.
+ -Moderate linear association: points are partially scattered along a line.
+ -Strong linear association:   points are minimally scattered along a line.
+
+Correlation
+Pearson correlation (R or ⍴): number between -1 and 1 indicating the strength and sign of association between 2 variables. The sign of the correlation is the sign of the
+association. The closer the number is to 1 or -1, the stronger the association.
