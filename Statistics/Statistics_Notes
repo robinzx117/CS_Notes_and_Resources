@@ -127,3 +127,10 @@ Scatterplot:
 Correlation
 Pearson correlation (R or ⍴): number between -1 and 1 indicating the strength and sign of association between 2 variables. The sign of the correlation is the sign of the
 association. The closer the number is to 1 or -1, the stronger the association.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+辛普森悖论（Simpson's Paradox）亦有人译为辛普森诡论，为英国统计学家E.H.辛普森（E.H.Simpson）于1951年提出的悖论，即在某个条件下的两组数据，分别讨论时都会满足某种性质，可是一旦合并考虑，
+却可能导致相反的结论。
+Confounding Variable: is an outside influence that changes the relationship between the independent and the dependent variable. It oftentimes works by affecting the causal
+relationship between the primary independent variable and the dependent variable. This confounding variable confuses the relationship between two other variables; it may act
+by hiding, obscuring, or enhancing the existing relationship.
