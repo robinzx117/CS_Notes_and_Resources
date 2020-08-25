@@ -134,3 +134,27 @@ association. The closer the number is to 1 or -1, the stronger the association.
 Confounding Variable: is an outside influence that changes the relationship between the independent and the dependent variable. It oftentimes works by affecting the causal
 relationship between the primary independent variable and the dependent variable. This confounding variable confuses the relationship between two other variables; it may act
 by hiding, obscuring, or enhancing the existing relationship.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Well-defined target population:
+*Option 1: Conduct a Census.
+*Option 2: Select a Scientific Probability Sample from the population.
+ –Construct list of all units in population = sampling frame.
+ –Determine probability of selection for every unit on list (known and non-zero).
+ –Select units from list at random, with sampling rates for different subgroups determined by probabilities of selection.
+ –Attempt to measure randomly selected units.
+*Option 3: Select a Non-Probability Sample from the population.
+ -Main Problems: No statistical basis for making inference about the target population; high potential for bias.
+
+Why Probability Sampling?
+-The known probabilities of selection for all units allow us to make unbiased statements about both population features and the uncertainty in survey estimates.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Simple Random Sampling (SRS)
+-Start with known list of N population units, and randomly select n units from the list.
+-Every unit has equal probability of selection = n / N.
+-All possible samples of size n are equally likely.
+-Estimates of means, proportions, and totals based on SRS are unbiased (equal to the population values on average).
+-Can be with replacement or without replacement. For both: probability of selection for each unit still n / N.
+-SRS rarely used in practice: collecting data from n randomly sampled units in large population can be expensive.
+-All randomly sampled units will yield observations that are independent (not correlated with each other) and identically distributed (representative, in theory).
