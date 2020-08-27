@@ -158,3 +158,17 @@ Simple Random Sampling (SRS)
 -Can be with replacement or without replacement. For both: probability of selection for each unit still n / N.
 -SRS rarely used in practice: collecting data from n randomly sampled units in large population can be expensive.
 -All randomly sampled units will yield observations that are independent (not correlated with each other) and identically distributed (representative, in theory).
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Complex samples have certain key features:
+-Population divided into different strata, and part of sample is allocated to each stratum; ensures sample representation from each stratum, and reduces variance of survey
+ estimates (stratification).
+–Clusters of population units (e.g., counties) are randomly sampled first (with known probability) within strata, to save costs of data collection (collect data from cases
+ close to each other geographically).
+–Units randomly sampled from within clusters, according to some probability of selection, and measured.
+
+Finding a unit’s probability of selection:
+-Select a out of A clusters at random in a given stratum. Then select b out of B units at random from within a selected cluster.
+-Probability of selection: (a/A)*(b/B).
+
+The inverse of a person’s probability of selection is then their sampling weight.
