@@ -172,3 +172,26 @@ Finding a unit’s probability of selection:
 -Probability of selection: (a/A)*(b/B).
 
 The inverse of a person’s probability of selection is then their sampling weight.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Features of Non-probability samples:
+–Probabilities of selection can’t be determined for sampled units.
+–No random selection of individual units.
+–Sample divided into groups (strata) or clusters, but clusters not randomly sampled in earlier stage.
+–Data collection often very cheap relative to probability sampling.
+
+*Non-probability sample: no statistical basis for making inference about larger population from which sample selected.
+*Knowing probabilities of selection (in addition to population strata and randomly sampled clusters) can estimate features of sampling distribution if were to take many random
+ samples using same design.
+*Sampled units not selected at random: strong risk of sampling bias (e.g., people actually interested in visiting particular web site).
+*Sampled units not generally representative of larger target population of interest.
+*“Big data” (e.g., information from millions of tweets) often from non-probability samples ~ be careful!
+
+Two possible approaches:
+1.Pseudo-Randomization Approach
+–Combine non-probability sample with a probability sample.
+–Estimate probability of being included in non-probability sample as a function of auxiliary information available in both samples.
+–Treat estimated probabilities of selection as “known” for non-probability sample, use probability sampling methods for analysis.
+2.Calibration Approach
+–Compute weights for responding units in non-probability sample that allow weighted sampled to mirror a known population.
+–Limitation: if weighting factor not related to variable(s) of interest will not reduce possible sampling bias.
