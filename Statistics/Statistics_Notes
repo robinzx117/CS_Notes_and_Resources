@@ -195,3 +195,21 @@ Two possible approaches:
 2.Calibration Approach
 –Compute weights for responding units in non-probability sample that allow weighted sampled to mirror a known population.
 –Limitation: if weighting factor not related to variable(s) of interest will not reduce possible sampling bias.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Sampling distribution: distribution of survey estimates we would see if we selected many random samples using same sampling design, and computed an estimate from each.
+Key properties of sampling distributions:
+–Hypothetical. What would happen if we had luxury of drawing thousands of probability samples and measuring each of them?
+–Generally very different in appearance from distribution of values on a single variable of interest.
+–With large enough probability sample size, sampling distribution of estimates will look like a normal distribution, regardless of what estimates are being computed.
+ Central Limit Theorem: CLT
+
+Sampling variance: variability in the estimates described by the sampling distribution.
+-Across hypothetical repeated samples, these sampling errors will randomly vary (some positive, some negative).
+-Variability of these sampling errors describes the variance of the sampling distribution.
+-If every sample estimate was equal to population quantity of interest (e.g., in the case of a Census), there would be no sampling error, and no sampling variance.
+-With a larger probability sample size, sampling more from a given population: in theory there will be less sampling error, and sampling errors will be less variable.
+-Larger samples, less sampling variance. More precise estimates, more confidence in inferential statements (but more costly).
+-Spread of sampling distribution becomes smaller as sample size become larger.
+
+Sampling theory allows us to estimate features of sampling distribution (including variance) based on one sample.
