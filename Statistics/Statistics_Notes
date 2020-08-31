@@ -213,3 +213,11 @@ Sampling variance: variability in the estimates described by the sampling distri
 -Spread of sampling distribution becomes smaller as sample size become larger.
 
 Sampling theory allows us to estimate features of sampling distribution (including variance) based on one sample.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Given large enough samples, sampling distributions of most statistics of interest tend to normality(regardless of how the input variables are distributed).
+This (Central Limit Theorem) result drives design-based statistical inference, or frequentist inference.
+
+Properties of sampling distributions for many popular statistics (regardless of complexity):
+–Normal, symmetrical, and centered at the true value.
+–Larger sample sizes: less variability in estimates.
