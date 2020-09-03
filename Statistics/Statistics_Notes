@@ -224,3 +224,43 @@ This (Central Limit Theorem) result drives design-based statistical inference, o
 Properties of sampling distributions for many popular statistics (regardless of complexity):
 –Normal, symmetrical, and centered at the true value.
 –Larger sample sizes: less variability in estimates.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+General approaches to making population inferences based on estimated features of sampling distributions:
+1.Confidence Interval Estimate for Parameters of Interest.
+2.Hypothesis Testing about Parameters of Interest.
+These approaches assume that sampling distributions for the estimate are (approximately) normal, which is often met if sample sizes are “large”.
+
+-Step 1: Compute the Point Estimate: Compute an unbiased point estimate of the parameter of interest.
+         Unbiased Point Estimate: average of all possible values for point estimate (a.k.a. expected value of the point estimate) is equal to true parameter value.
+         Key Idea: want estimate to be unbiased with respect to sample design. If cases had unequal probabilities of selection, those weights need to be used when computing
+         the point estimate.
+-Step 2: Estimate the Sampling Variance of the Point Estimate: Compute an unbiased estimate of the variance of the sampling distribution for the particular point estimate.
+         Unbiased Variance Estimate: Correctly describes variance of the sampling distribution under the sample design used.
+         Square root of variance = Standard Error of the Point Estimate
+
+To Form a Confidence Interval:
+Best Estimate ± Margin of Error
+Best Estimate = Unbiased Point Estimate
+Margin of Error = “a few” Estimated Standard Errors
+“a few” = multiplier from appropriate distribution based on desired confidence level and sample design
+95% Confidence Level 0.05 Significance
+Key Idea: 95% confidence level: expect 95% of intervals will cover true population value (if computed in this way in repeated samples).
+
+Caution: important to get all 3 pieces right for correct inference:
+1.If best estimate is not unbiased point estimate,
+2.If margin of error does not use correct multiplier,
+3.Does not use unbiased estimate of the standard error,
+confidence interval will not have the advertised coverage.
+Key Idea: Interval = range of reasonable values for parameter.
+If hypothesized value for parameter lies outside confidence interval, we don’t have evidence to support that value at corresponding significance level.
+
+Hypothesis: Could the value of the parameter be hypothesized or ‘null’ value?
+Is point estimate for parameter close to this null value or far away?
+Use standard error of point estimate as yardstick:
+    Test statistic = (estimate - null value)/standard error
+If the null is true, what is the probability of seeing a test statistic this extreme (or more extreme)? If probability small, reject the null.
+
+These inferential procedures are valid if probability sampling was used.
+What if data from a non-probability sample?
+Inference approaches generally rely on modeling and combinations of data with other probability samples.
