@@ -111,6 +111,12 @@ Two pointers: one slow-runner and one fast-runner.
 如果 target = nums[pivot]，返回 pivot。
 如果 target < nums[pivot]，则在左侧继续搜索 right = pivot - 1。
 如果 target > nums[pivot]，则在右侧继续搜索 left = pivot + 1。
+
+动态规划:
+1.确定状态
+2.转移方程
+3.初始条件和边界情况
+4.计算顺序
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 An in-place algorithm is an algorithm which transforms input using no auxiliary data structure. However a small amount of extra storage space is allowed for auxiliary variables.
