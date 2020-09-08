@@ -1,0 +1,20 @@
+If ptr points to an integer, ptr + 1 is the address of the next integer in memory after ptr. ptr - 1 is the address of the previous integer before ptr.
+Note that ptr + 1 does not return the memory address after ptr, but the memory address of the next object of the type that ptr points to. If ptr points to an integer (assuming 4
+bytes), ptr + 3 means 3 integers (12 bytes) after ptr. If ptr points to a char, which is always 1 byte, ptr + 3 means 3 chars (3 bytes) after ptr.
+When calculating the result of a pointer arithmetic expression, the compiler always multiplies the integer operand by the size of the object being pointed to.
+This is called scaling.
+
+#include <iostream>
+int main(){
+    int num = 7;
+    int *ptr = &num;
+    std::cout<<ptr<<'\n';
+    std::cout<<ptr+1<<'\n';
+    std::cout<<ptr+2<<'\n';
+    return 0;
+}
+
+Output:
+0xfff000bd4
+0xfff000bd8
+0xfff000bdc
