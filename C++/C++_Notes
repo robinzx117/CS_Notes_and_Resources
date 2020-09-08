@@ -1,3 +1,27 @@
+There may be cases where the memory needs of a program can only be determined during runtime. For example, when the memory needed depends on user input. On these cases,
+programs need to dynamically allocate memory, for which the C++ language integrates the operators new and delete.
+Dynamic memory is allocated using operator new. new is followed by a data type specifier and, if a sequence of more than one element is required, the number of these within
+brackets []. It returns a pointer to the beginning of the new block of memory allocated. Its syntax is:
+pointer = new type
+pointer = new type [number_of_elements]
+The first expression is used to allocate memory to contain one single element of type type. The second one is used to allocate a block (an array) of elements of type type,
+where number_of_elements is an integer value representing the amount of these.
+
+In most cases, memory allocated dynamically is only needed during specific periods of time within a program; once it is no longer needed, it can be freed so that the memory
+becomes available again for other requests of dynamic memory. This is the purpose of operator delete, whose syntax is:
+delete pointer;
+delete[] pointer;
+The first statement releases the memory of a single element allocated using new, and the second one releases the memory allocated for arrays of elements using new and a size
+in brackets ([]).
+The value passed as argument to delete shall be either a pointer to a memory block previously allocated with new, or a null pointer (in the case of a null pointer, delete
+produces no effect).
+
+C++ integrates the operators new and delete for allocating dynamic memory. But these were not available in the C language; instead, it used a library solution, with the
+functions malloc, calloc, realloc and free, defined in the header <cstdlib> (known as <stdlib.h> in C). The functions are also available in C++ and can also be used to allocate
+and deallocate dynamic memory. Note, though, that the memory blocks allocated by these functions are not necessarily compatible with those returned by new, so they should not be
+mixed; each one should be handled with its own set of functions or operators.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 三元运算符:
 条件运算符"?:",其语法为:
 // 条件表达式 ? 表达式1 : 表达式2;
@@ -14,8 +38,8 @@ else
 {
     result = 表达式2;
 }
----------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Overload(重载)：在C++程序中，可以将语义、功能相似的几个函数用同一个名字表示，但参数或返回值不同（包括类型、顺序不同），即函数重载。
 （1）相同的范围（在同一个类中）；
 （2）函数名字相同；
@@ -31,14 +55,14 @@ Override(覆盖)：是指派生类函数覆盖基类函数，特征是：
 Overwrite(重写)：是指派生类的函数屏蔽了与其同名的基类函数，规则如下：
 （1）如果派生类的函数与基类的函数同名，但是参数不同。此时，不论有无virtual关键字，基类的函数将被隐藏（注意别与重载混淆）。
 （2）如果派生类的函数与基类的函数同名，并且参数也相同，但是基类函数没有virtual关键字。此时，基类的函数被隐藏（注意别与覆盖混淆）。
----------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #include<string>
 using std::string;
 
 string.length()
----------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 In C++, all containers (vector, stack, queue, set, map, etc) support both insert and emplace operations.
 The advantage of emplace is, it does in-place insertion and avoids an unnecessary copy of object. For primitive data types, it does not
 matter which one we use. But for objects, use of emplace() is preferred for efficiency reasons.
@@ -48,8 +72,8 @@ using std::vector;
 
 vector<someObject>.size()
 vector<someObject>.begin()
----------------------------------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #include<iostream>
 using std::cout;
 
