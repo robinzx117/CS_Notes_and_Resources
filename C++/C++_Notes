@@ -57,6 +57,10 @@ Overwrite(重写)：是指派生类的函数屏蔽了与其同名的基类函数
 （2）如果派生类的函数与基类的函数同名，并且参数也相同，但是基类函数没有virtual关键字。此时，基类的函数被隐藏（注意别与覆盖混淆）。
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+A virtual function is a member function which is declared within a base class and is re-defined(Overriden) by a derived class. When you refer to a derived class object using a
+pointer or a reference to the base class, you can call a virtual function for that object and execute the derived class’s version of the function.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #include<string>
 using std::string;
 
@@ -90,3 +94,22 @@ int main() {
 }
 (1) 如果用前缀运算符对一个变量增1(减1)，则在将该变量增1(减1)后，用新值在表达式中进行其他的运算。
 (2) 如果用后缀运算符对一个变量增1(减1)，则用该变量的原值在表达式中进行其他的运算后，再将该变量增1(减1)。
+
+int i=0;
+printf("%d%d%d", i++, i++, i++);
+Output:210
+Stack is used to store the parameters of any function in C and stack follows Last In First Out (LIFO) order. Therefore the parameter are evaluated in right to left order.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class A{
+public:
+    void fun(){
+        std::cout<<"fun"<<std::endl;
+    }
+};
+A* a = NULL;
+a->fun();
+
+Undefined behavior, so anything might happen.
+A possible result would be that it just prints "fun" since the method doesn't access any member variables of the object it is called on(the memory where the object supposedly
+lives doesn't need to be accessed, so access violations don't necessarily occur).
