@@ -191,13 +191,36 @@ Features of Non-probability samples:
 *“Big data” (e.g., information from millions of tweets) often from non-probability samples ~ be careful!
 
 Two possible approaches:
-1.Pseudo-Randomization Approach
-–Combine non-probability sample with a probability sample.
+1.Pseudo-Randomization Approach (or Quasi-Randomization)
+–Combine non-probability sample with a probability sample that collected same types of measures.
 –Estimate probability of being included in non-probability sample as a function of auxiliary information available in both samples.
 –Treat estimated probabilities of selection as “known” for non-probability sample, use probability sampling methods for analysis.
+–Stack the two data sets; non-probability sample may have other response variables we are really interested in.
+–Code NPSAMPLE = 1 if member of non-probability sample.
+      NPSAMPLE = 0 if member of probability sample.
+–Fit logistic regression model: predicting NPSAMPLE with common variables, weighting non-probability cases by 1 and weighting probability cases by their survey weights.
+
+*1.Can predict probability of being in non-probability sample, within whatever population is represented by probability sample.
+*2.Invert predicted probabilities for non-probability sample, treat as survey weights in standard weighted survey analysis.
+   Survey Weight = 1 / (Predicted Probability)
+Issue: How to estimate sampling variance? Not entirely clear.
+       Some kind of replication method is recommended: (e.g. computing weighted estimates based on bootstrap samples or jackknife samples of the original units).
+
 2.Calibration Approach
 –Compute weights for responding units in non-probability sample that allow weighted sampled to mirror a known population.
+-Use predictive modeling to predict aggregate sample quantities (usually totals) on key variables of interest for population units not included in the non-probability sample.
+-Compute estimates of interest using estimated totals:
+ e.g. Weighted Mean = Predicted Total Estimate/Estimated Population Size
+ Note: Don’t need probability sample with same measures.
+-Need good regression models to predict key variables using other auxiliary information available at aggregate level (e.g., totals for overall population).
+-Standard errors can be based on fitted regression models, or using similar replication methods.
 –Limitation: if weighting factor not related to variable(s) of interest will not reduce possible sampling bias.
+
+Summary:
+Inferential methods for non-probability samples need to:
+-Leverage other auxiliary information (reference probability samples or regression models).
+-Predict values for population cases not included in probability sample (or at least probability of being included in non-probability sample).
+-In absence of this information: we will have a hard time making good population inferences.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Sampling distribution: distribution of survey estimates we would see if we selected many random samples using same sampling design, and computed an estimate from each.
