@@ -166,15 +166,46 @@ Simple Random Sampling (SRS)
 Complex samples have certain key features:
 -Population divided into different strata, and part of sample is allocated to each stratum; ensures sample representation from each stratum, and reduces variance of survey
  estimates (stratification).
-–Clusters of population units (e.g., counties) are randomly sampled first (with known probability) within strata, to save costs of data collection (collect data from cases
- close to each other geographically).
+ *Example: Proportionate Allocation:
+           If 70% of a population appears in one stratum and 30% in the other; then 70% of the overall sample would be allocated to the first stratum, and 30% to the second.
+ *Stratification will eliminate between-stratum variance in means (or totals) on variable from the sampling variance.
+ *Important to account for stratification in analysis; else sampling variance may be artificially large: inferences too conservative, confidence intervals too wide.
+
+–Clusters of population units possibly across multiple stages (e.g., counties, then segments, then households) are randomly sampled first (with known probability) within strata,
+ to save costs of data collection (collect data from cases close to each other geographically).
+ *Tends to increase sampling variance of estimates: Units within same cluster have similar (correlated) values on variables of interest: don’t measure unique info.
+ *Important to account for cluster sampling in analysis, else inferences too liberal, confidence intervals too narrow.
+
 –Units randomly sampled from within clusters, according to some probability of selection, and measured.
+
+–Weighting: Complex samples are still probability samples, but if:
+ 1.Multiple stages of cluster sampling within strata.
+ 2.Certain subgroups sampled at higher rates (oversampling).
+ Unequal probabilities of selection for different units.
+ *Need to account for these unequal probabilities to make unbiased population inferences.
+ *Use of weights in analysis (partly) defined by inverse of probability of selection. If my probability is 1/100: my weight is 100, I represent myself and 99 others in the
+  population.
+ *Weights also adjusted for different probabilities of responding in different subgroups:
+  If my probability of selection = 1/100 and I belong to subgroup where only 50% responded, my adjusted weight = (1/0.01) x (1/0.5) = 200.
+ *Important need to use weights so estimates are unbiased with respect to the sample design; else possible serious bias.
+ *Drawback: like cluster sampling, highly variable adjusted survey weights tend to increase sampling variance of weighted estimates (even if they produce unbiased estimates).
+
+Design Effects:
+Stratification: reduce sampling variance.
+Cluster and Weighting: increase sampling variance.
+Net multiplicative change (relative to SRS) = design effect.
+
+Most "survey analysis" procedures in statistical software compute unbiased point estimates (using final survey weights) and unbiased estimates of sampling variance (using
+stratum and cluster information, or replicate sampling weights).
+
+Analytic Error: many secondary analysis of survey data collected from complex samples don’t do this can lead to biased inferences based on survey data.
+
+Documentation = what complex sampling performed, and what variables capture complex sampling features (weights, stratum codes, cluster codes).
+Keywords indicating need to account for complex sampling: multistage sampling, weights, stratification, cluster sampling, design effects.
 
 Finding a unit’s probability of selection:
 -Select a out of A clusters at random in a given stratum. Then select b out of B units at random from within a selected cluster.
 -Probability of selection: (a/A)*(b/B).
-
-The inverse of a person’s probability of selection is then their sampling weight.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Features of Non-probability samples:
