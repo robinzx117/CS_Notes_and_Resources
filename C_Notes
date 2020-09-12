@@ -1,3 +1,15 @@
+%c: Character format specifier
+%d, %i: Integer format specifier
+%d and %i behave similar with printf. %d and %i behavior is different in scanf, %d assume base 10 while %i auto detects the base. 012 would be 10 with %i but 12 with %d.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+int scanf ( const char * format, ... );
+-Read formatted data from stdin.
+
+int printf ( const char * format, ... );
+-Print formatted data to stdout.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 If ptr points to an integer, ptr + 1 is the address of the next integer in memory after ptr. ptr - 1 is the address of the previous integer before ptr.
 Note that ptr + 1 does not return the memory address after ptr, but the memory address of the next object of the type that ptr points to. If ptr points to an integer (assuming 4
 bytes), ptr + 3 means 3 integers (12 bytes) after ptr. If ptr points to a char, which is always 1 byte, ptr + 3 means 3 chars (3 bytes) after ptr.
