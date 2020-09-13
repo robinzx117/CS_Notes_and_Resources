@@ -1,3 +1,11 @@
+A header file "stdbool.h" must be included to use bool in C.
+#include <stdbool.h>
+int main() {
+    bool arr[2] = {true, false};
+    return 0;
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 %c: Character format specifier
 %d, %i: Integer format specifier
 %d and %i behave similar with printf. %d and %i behavior is different in scanf, %d assume base 10 while %i auto detects the base. 012 would be 10 with %i but 12 with %d.
