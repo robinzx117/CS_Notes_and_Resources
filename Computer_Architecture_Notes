@@ -1,0 +1,8 @@
+Volatile memory: in contrast to non-volatile memory, is computer memory that requires power to maintain the stored information; it retains its contents while powered on but when
+                 the power is interrupted, the stored data is quickly lost. Volatile memory has several uses including as primary storage. In addition to usually being faster
+                 than forms of mass storage such as a hard disk drive, volatility can protect sensitive information, as it becomes unavailable on power-down. Most of the
+                 general-purpose random-access memory(RAM) is volatile.
+
+Non-volatile memory: a type of computer memory that can retrieve stored information even after having been power cycled. Examples of non-volatile memory include flash memory,
+                     read-only memory(ROM), ferroelectric RAM, most types of magnetic computer storage devices (e.g. hard disk drives, floppy disks, and magnetic tape), optical
+                     discs, and early computer storage methods such as paper tape and punched cards.
