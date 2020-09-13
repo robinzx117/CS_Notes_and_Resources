@@ -118,3 +118,12 @@ a->fun();
 Undefined behavior, so anything might happen.
 A possible result would be that it just prints "fun" since the method doesn't access any member variables of the object it is called on(the memory where the object supposedly
 lives doesn't need to be accessed, so access violations don't necessarily occur).
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#include <ctype.h>
+
+int isalpha ( int c );
+-Check if character is alphabetic.
+
+int isalnum ( int c );
+-Check if character is alphanumeric.
