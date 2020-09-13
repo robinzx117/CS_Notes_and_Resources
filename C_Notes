@@ -66,6 +66,64 @@ A typical memory representation of C program consists of following sections:
         Heap area is managed by malloc, realloc, and free. The Heap area is shared by all shared libraries and dynamically loaded modules in a process.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+The size of void pointer varies system to system. If the system is 16-bit, size of void pointer is 2 bytes. If the system is 32-bit, size of void pointer is 4 bytes. If the
+system is 64-bit, size of void pointer is 8 bytes.
+
+#include <stdio.h>
+int main() {
+    void *ptr;
+    printf("The size of pointer value : %d", sizeof(ptr));
+    return 0;
+}
+
+Output:
+The size of pointer value : 8 // 64-bit system
+
+Double Pointer(Pointer to Pointer):
+A pointer is used to store the address of variables. So, when we define a pointer to pointer, the first pointer is used to store the address of the second pointer.
+
+#include<iostream>
+int main() {
+    int a = 17;
+    int *p1;
+    int **p2;
+    p1 = &a;
+    p2 = &p1;
+    printf("Value of a = %d\n", a);
+    printf("Value of a using single pointer = %d\n", *p1);
+    printf("Value of a using double pointer = %d\n", **p2);
+    return 0;
+}
+
+Output:
+Value of a = 17
+Value of a using single pointer = 17
+Value of a using double pointer = 17
+
+The sizeof() class with no virtual function inside it, is equal to the sum of all sizes of the member variable. For a class with one or more virtual functions the sizeof()
+class is the sizeof() class plus the sizeof(void *). This extra size is for the hidden member called vptr which is a pointer, points to vtable.
+
+class C1{
+    short i;
+    void funct();
+};
+class C2{
+    short i;
+    virtual void funct();
+};
+size of class C1 is 2 or sizeof(short).
+size of class C2 is sizeof(short) + sizeof(void *) that is 2 + 4 = 6 for 32bit compiler. Because this extra 4 byte is used as a hidden vptr member of the class.
+When we make a function as a virtual, compiler automatically set a hidden vptr as a class data member field.
+
+Class without any data members and member function such type of class is known as empty class. Size of object of empty class is always 1 byte.
+When we create object of any class at that time object always gets 3 characteristics:
+    -State
+    -Behaviour
+    -Identity
+When we create object of empty class at that time. State of that object is nothing. Behaviour of that object is also nothing, but compiler assigns a unique address to that
+object. Memory in computer is always organized in the form of bytes and minimum memory available at object address location is 1 byte.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Arguments in C and C++ language are copied to the program stack at run time, where they are read by the function. These arguments can either be values in their own right, or they
 can be pointers to areas of memory that contain the data being passed.
 A Parameter is the symbolic name for "data" that goes into a function. There are two ways to pass parameters in C++: Pass by Value, Pass by Reference.
