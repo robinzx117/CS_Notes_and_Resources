@@ -1,3 +1,8 @@
+static variable: a variable that has been allocated "statically", meaning that its lifetime (or "extent") is the entire run of the program.
+                 as static variables are initialized only once and are shared by all objects of a class, the static variables are never initialized by a constructor. Instead,
+                 the static variable should be explicitly initialized outside the class only once using the scope resolution operator (::).
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 There may be cases where the memory needs of a program can only be determined during runtime. For example, when the memory needed depends on user input. On these cases,
 programs need to dynamically allocate memory, for which the C++ language integrates the operators new and delete.
 Dynamic memory is allocated using operator new. new is followed by a data type specifier and, if a sequence of more than one element is required, the number of these within
