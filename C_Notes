@@ -10,6 +10,31 @@ int printf ( const char * format, ... );
 -Print formatted data to stdout.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Arguments in C and C++ language are copied to the program stack at run time, where they are read by the function. These arguments can either be values in their own right, or they
+can be pointers to areas of memory that contain the data being passed.
+A Parameter is the symbolic name for "data" that goes into a function. There are two ways to pass parameters in C++: Pass by Value, Pass by Reference.
+1.Pass by Value, means that a copy of the data is made and stored by way of the name of the parameter. Any changes to the parameter have NO affect on data in the calling
+  function.
+2.A reference parameter "refers" to the original data in the calling function. Thus any changes made to the parameter are ALSO MADE TO THE ORIGINAL variable.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+*(asterisk) and &(ampersand) as type modifiers:
+int i      - declares an int.
+int* p     - declares a pointer to an int.
+int& r = i - declares a reference to an int, and initializes it to reference i.
+void foo(int i)  - declares a function taking an int (by value, i.e. as a copy).
+void foo(int* p) - declares a function taking a pointer to an int.
+void foo(int& r) - declares a function taking an int by reference. (C++ only)
+
+// struct cpp *p
+&(p->mem) is taking the address of the mem member of the struct pointed to by p.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+char str1[] = "string"; declares a char array of size 7 and initializes it with the characters: s,t,r,i,n,g and \0. You are allowed to modify the contents of this array.
+char *str2  = "string"; declares str2 as a char pointer and initializes it with address of string literal "string" which is read-only. Modifying a string literal is an undefined
+                       behavior. char* is a pointer reference. char* points to memory location where the contents are stored.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 If ptr points to an integer, ptr + 1 is the address of the next integer in memory after ptr. ptr - 1 is the address of the previous integer before ptr.
 Note that ptr + 1 does not return the memory address after ptr, but the memory address of the next object of the type that ptr points to. If ptr points to an integer (assuming 4
 bytes), ptr + 3 means 3 integers (12 bytes) after ptr. If ptr points to a char, which is always 1 byte, ptr + 3 means 3 chars (3 bytes) after ptr.
