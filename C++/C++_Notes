@@ -1,3 +1,11 @@
+size_t:
+    -Unsigned integral type. Alias of one of the fundamental unsigned integer types.
+     It is a type able to represent the size of any object in bytes: size_t is the type returned by the sizeof operator and is widely used in the standard library to represent
+     sizes and counts.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+const: is a promise that you will not try to modify the value once set.
+
 static variable: a variable that has been allocated "statically", meaning that its lifetime (or "extent") is the entire run of the program.
                  as static variables are initialized only once and are shared by all objects of a class, the static variables are never initialized by a constructor. Instead,
                  the static variable should be explicitly initialized outside the class only once using the scope resolution operator (::).
@@ -25,6 +33,106 @@ C++ integrates the operators new and delete for allocating dynamic memory. But t
 functions malloc, calloc, realloc and free, defined in the header <cstdlib> (known as <stdlib.h> in C). The functions are also available in C++ and can also be used to allocate
 and deallocate dynamic memory. Note, though, that the memory blocks allocated by these functions are not necessarily compatible with those returned by new, so they should not be
 mixed; each one should be handled with its own set of functions or operators.
+
+ Feature                  | new/delete                     | malloc/free
+--------------------------+--------------------------------+-------------------------------
+ Memory allocated from    | 'Free Store'                   | 'Heap'
+ Returns                  | Fully typed pointer            | void*
+ On failure               | Throws (never returns NULL)    | Returns NULL
+ Required size            | Calculated by compiler         | Must be specified in bytes
+ Handling arrays          | Has an explicit version        | Requires manual calculations
+ Reallocating             | Not handled intuitively        | Simple (no copy constructor)
+ Call of reverse          | Implementation defined         | No
+ Low memory cases         | Can add a new memory allocator | Not handled by user code
+ Overridable              | Yes                            | No
+ Use of (con-)/destructor | Yes                            | No
+
+type variable = new type(parameter_list);
+type variable = (type *)malloc(sizeof(type));
+delete p;
+delete [] p; // delete array
+free(ptr);
+
+Single pointer:
+#include <iostream>
+#define ROW 4
+#define COL 5
+int main(){
+    int* A = new int[ROW*COL];
+    for (int i=0; i<ROW; i++){
+        for (int j=0; j<COL; j++){
+            (A + i*COL)[j] = 1;
+        }
+    }
+    for (int i=0; i<ROW; i++){
+        for (int j=0; j<COL; j++){
+            std::cout<<(A + i*COL)[j]<<" ";
+        }
+        std::cout<<std::endl;
+    }
+    delete [] A;
+    return 0;
+}
+
+Array of pointers:
+#include <iostream>
+#define ROW 4
+#define COL 5
+int main(){
+    int** A = new int*[ROW];
+    for (int i=0; i<ROW; i++){
+        A[i] = new int[COL];
+    }
+    for (int i=0; i<ROW; i++){
+        for (int j=0; j<COL; j++){
+            A[i][j] = 1;
+        }
+    }
+    for (int i=0; i<ROW; i++){
+        for (int j=0; j<COL; j++){
+            std::cout<<A[i][j]<<" ";
+        }
+        std::cout<<std::endl;
+    }
+    for (int i=0; i<ROW; i++){
+        delete[] A[i];
+    }
+    delete [] A;
+    return 0;
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Destructors:
+    -is a special member function that is called when the lifetime of an object ends. The purpose of the destructor is to free the resources that the object may have acquired
+     during its lifetime.
+     ~ class_name ();
+
+Copy constructors:
+    -a copy constructor of class T is a non-template constructor whose first parameter is T&, const T&, volatile T&, or const volatile T&, and either there are no other
+     parameters, or the rest of the parameters all have default values.
+     class_name ( const class_name & );
+
+Copy assignment operator:
+    -a copy assignment operator of class T is a non-template non-static member function with the name operator= that takes exactly one parameter of type T, T&, const T&,
+     volatile T&, or const volatile T&. For a type to be CopyAssignable, it must have a public copy assignment operator.
+     class_name & class_name :: operator= ( class_name );
+
+Rule of three:
+    -if a class requires a user-defined destructor, a user-defined copy constructor, or a user-defined copy assignment operator, it almost certainly requires all three.
+     Because C++ copies and copy-assigns objects of user-defined types in various situations (passing/returning by value, manipulating a container, etc), these special member
+     functions will be called, if accessible, and if they are not user-defined, they are implicitly-defined by the compiler.
+     The implicitly-defined special member functions are typically incorrect if the class is managing a resource whose handle is an object of non-class type (raw pointer,
+     POSIX file descriptor, etc), whose destructor does nothing and copy constructor/assignment operator performs a "shallow copy" (copy the value of the handle, without
+     duplicating the underlying resource).
+
+Shallow copying:
+    -because C++ does not know much about your class, the default copy constructor and default assignment operators it provides use a copying method known as a memberwise copy
+     (also known as a shallow copy). This means that C++ copies each member of the class individually (using the assignment operator for overloaded operator=, and direct
+     initialization for the copy constructor). When classes are simple (e.g. do not contain any dynamically allocated memory), this works very well.
+
+Deep copy:
+    -allocates memory for the copy and then copies the actual value, so that the copy lives in distinct memory from the source. This way, the copy and source are distinct and
+     will not affect each other in any way. Doing deep copies requires that we write our own copy constructors and overloaded assignment operators.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 三元运算符:
