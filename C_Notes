@@ -7,7 +7,6 @@ int main() {
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #include <stdio.h>
-
 int main() {
     printf("Size of int : %d\n",   sizeof(int));
     printf("Size of char : %d\n",  sizeof(char));
@@ -21,6 +20,25 @@ Size of int : 4
 Size of char : 1
 Size of float : 4
 Size of double : 8
+
+#include <stdio.h>
+struct s {     //1 byte
+    double f;  //8 byte
+    int i;     //4 byte
+    char c[3]; //3 byte
+    void *p;   //8 byte
+    int x[0];  //0 byte
+};
+int main(int argc, char ** argv) {
+    struct s temp;
+    printf("The size of the struct is %d\n", sizeof(temp));
+    printf("The size of the double is %d\n", sizeof(temp.f));
+    printf("The size of a character array is %d\n", sizeof(temp.c));
+    printf("The size of a void pointer is %d\n", sizeof(temp.p));
+    printf("The size of an integer array is %d\n", sizeof(temp.x));
+    printf("The size of an integer is %d\n", sizeof(temp.i));
+    return 0;
+}
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 char str[] = "Hello\0";
@@ -35,10 +53,9 @@ The key here is that the implicit nul terminator is always added - even if the s
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 int scanf ( const char * format, ... );
--Read formatted data from stdin.
-
+    -Read formatted data from stdin.
 int printf ( const char * format, ... );
--Print formatted data to stdout.
+    -Print formatted data to stdout.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 A typical memory representation of C program consists of following sections:
