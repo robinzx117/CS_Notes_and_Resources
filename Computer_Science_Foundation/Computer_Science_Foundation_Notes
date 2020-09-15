@@ -26,10 +26,12 @@ A&B = 0000 1100
 A|B = 0011 1101
 A^B = 0011 0001
 ~A  = 1100 0011
-&	如果相对应位都是1，则结果为1，否则为0.            （A&B） 得到12， 即0000 1100
-|	如果相对应位都是0，则结果为0，否则为1.            （A|B） 得到61， 即0011 1101
-^	如果相对应位值相同，则结果为0，否则为1.           （A^B） 得到49， 即0011 0001
-~	按位取反运算符翻转操作数的每一位，即0变成1，1变成0.（~A）  得到-61，即1100 0011
+&  (bitwise AND)	如果相对应位都是1，则结果为1，否则为0.            （A&B） 得到12， 即0000 1100
+|  (bitwise OR)  如果相对应位都是0，则结果为0，否则为1.            （A|B） 得到61， 即0011 1101
+^  (bitwise XOR) 如果相对应位值相同，则结果为0，否则为1.           （A^B） 得到49， 即0011 0001
+~  (bitwise NOT) 按位取反运算符翻转操作数的每一位，即0变成1，1变成0.（~A）  得到-61，即1100 0011
+<< (bitwise left shift)
+>> (bitwise right shift)
 == has higher precedence than &
 
 If we take XOR(^) of zero and some bit, it will return that bit:
@@ -39,3 +41,10 @@ a⊕a=0
 a⊕b⊕a = (a⊕a)⊕b = 0⊕b = b
 
 (x^y) is addition without carry. (x&y) is the carry-out from each bit. (x&y)<<1 is the carry-in to each bit.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Operator: such as addition of integers or exclusive-or of booleans would be translated into one (or few) assembler commands which would be directly executed by the processor
+          (resp. its ALU). It would also be part of the syntax.
+
+Function: or procedure, method, on the other hand, is a subprogram the (main) program would explicitly jump to during execution. That is, a new stack frame is allocated,
+          register values are saved, parameters are passed and only then is the function executed. Furthermore, functions are defined by the programmer.
