@@ -102,6 +102,37 @@ int main(){
 }
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+The most important function of C/C++ is main() function. It is mostly defined with a return type of int and without parameters:
+    -int main() { /* ... */ }
+We can also give command-line arguments in C and C++. Command-line arguments are given after the name of the program in command-line shell of Operating Systems.
+To pass command line arguments, we typically define main() with two arguments: first argument is the number of command line arguments and second is list of command-line arguments.
+    -int main(int argc, char *argv[]) { /* ... */ } or int main(int argc, char **argv) { /* ... */ }
+Basically, char* argv[] means array of char pointers, whereas char** argv means pointer to a char pointer. In any array, the name of the array is a pointer to first element
+of the array, that is, it contains the address of the first element.
+    -argc(ARGument Count) is int and stores number of command-line arguments passed by the user including the name of the program. So if we pass a value to a program, value of
+     argc would be 2(one for argument and one for program name).
+    -argv(ARGument Vector) is array of character pointers listing all the arguments.
+If argc is greater than zero, the array elements from argv[0] to argv[argc-1] will contain pointers to strings.
+Argv[0] is the name of the program, after that till argv[argc-1] every element is command-line arguments.
+
+Properties of Command Line Arguments:
+    -They are passed to main() function.
+    -They are parameters/arguments supplied to the program when it is invoked.
+    -They are used to control program from outside instead of hard coding those values inside the code.
+    -argv[argc] is a NULL pointer.
+    -argv[0] holds the name of the program.
+Note: You pass all the command line arguments separated by a space, but if argument itself has a space then you can pass such arguments by putting them inside double quotes "".
+
+/* What's wrong with this program? */
+/* Segmentation fault. Should be int main(int argc, char const ** argv). */
+#include <stdio.h>
+int main(int argc, char const * argv) {
+    for(int i=0; i<argc; ++i) {
+        printf("%s\n", argv[i]);
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Destructors:
     -is a special member function that is called when the lifetime of an object ends. The purpose of the destructor is to free the resources that the object may have acquired
      during its lifetime.
@@ -125,7 +156,7 @@ Rule of three:
      POSIX file descriptor, etc), whose destructor does nothing and copy constructor/assignment operator performs a "shallow copy" (copy the value of the handle, without
      duplicating the underlying resource).
 
-Shallow copying:
+Shallow copy:
     -because C++ does not know much about your class, the default copy constructor and default assignment operators it provides use a copying method known as a memberwise copy
      (also known as a shallow copy). This means that C++ copies each member of the class individually (using the assignment operator for overloaded operator=, and direct
      initialization for the copy constructor). When classes are simple (e.g. do not contain any dynamically allocated memory), this works very well.
@@ -176,7 +207,6 @@ pointer or a reference to the base class, you can call a virtual function for th
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #include<string>
 using std::string;
-
 string.length()
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -186,24 +216,22 @@ matter which one we use. But for objects, use of emplace() is preferred for effi
 
 #include<vector>
 using std::vector;
-
 vector<someObject>.size()
 vector<someObject>.begin()
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #include<iostream>
 using std::cout;
-
 int main() {
-  int a=5;
-  int b=++a;
-  int c=5;
-  int d=c++;
-  cout<<"a="<<a<<"\n";  // a=6
-  cout<<"b="<<b<<"\n";  // b=6
-  cout<<"c="<<c<<"\n";  // c=6
-  cout<<"d="<<d<<"\n";  // d=5
-  return 0;
+    int a=5;
+    int b=++a;
+    int c=5;
+    int d=c++;
+    cout<<"a="<<a<<"\n";  // a=6
+    cout<<"b="<<b<<"\n";  // b=6
+    cout<<"c="<<c<<"\n";  // c=6
+    cout<<"d="<<d<<"\n";  // d=5
+    return 0;
 }
 (1) 如果用前缀运算符对一个变量增1(减1)，则在将该变量增1(减1)后，用新值在表达式中进行其他的运算。
 (2) 如果用后缀运算符对一个变量增1(减1)，则用该变量的原值在表达式中进行其他的运算后，再将该变量增1(减1)。
@@ -231,7 +259,6 @@ lives doesn't need to be accessed, so access violations don't necessarily occur)
 #include <ctype.h>
 
 int isalpha ( int c );
--Check if character is alphabetic.
-
+    -Check if character is alphabetic.
 int isalnum ( int c );
--Check if character is alphanumeric.
+    -Check if character is alphanumeric.
