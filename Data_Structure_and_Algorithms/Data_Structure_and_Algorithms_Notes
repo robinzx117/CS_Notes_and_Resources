@@ -59,6 +59,17 @@ Definition for singly-linked list.
 弹出（弹栈，pop） ：将堆栈顶端资料移除。
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+In a FIFO data structure, the first element added to the queue will be processed first.
+Queue is a typical FIFO data stucture. The insert operation is also called enqueue and the new element is always added at the end of the queue. The delete operation is called
+dequeue. You are only allowed to remove the first element.
+A more efficient way is to use a circular queue. Specifically, we may use a fixed-size array and two pointers to indicate the starting position and the ending position. And
+the goal is to reuse the wasted storage.
+任何数据结构中都不存在环形结构，但是可以使用一维数组模拟，通过操作数组的索引构建一个虚拟的环。很多复杂数据结构都可以通过数组实现。
+对于一个固定大小的数组，任何位置都可以是队首，只要知道队列长度，就可以根据下面公式计算出队尾位置：
+    tailIndex=(headIndex+count−1)%capacity
+其中capacity是数组长度，count是队列长度，headIndex和tailIndex分别是队首head和队尾tail索引。
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 A tree is a frequently-used data structure to simulate a hierarchical tree structure.
 Each node of the tree will have a root value and a list of references to other nodes which are called child nodes. From graph view, a tree can also be defined as a directed
 acyclic graph which has N nodes and N-1 edges.
