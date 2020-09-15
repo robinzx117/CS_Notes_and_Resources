@@ -1,3 +1,29 @@
-Internet Protocol version 4(IPv4)
-IPv4 uses a 32-bit address space which provides 4,294,967,296 (2^32) unique addresses, but large blocks are reserved for special networking methods.
-Address range: 0.0.0.0–255.255.255.255
+Internet Protocol(IP):
+    -is the principal communications protocol in the Internet protocol suite for relaying datagrams across network boundaries. Its routing function enables internet working, and
+     essentially establishes the Internet. IP has the task of delivering packets from the source host to the destination host solely based on the IP addresses in the packet
+     headers. For this purpose, IP defines packet structures that encapsulate the data to be delivered. It also defines addressing methods that are used to label the datagram
+     with source and destination information.
+
+Internet Protocol address(IP address):
+    -is a numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication. An IP address serves two main functions: host
+     or network interface identification and location addressing.
+
+Internet Protocol version 4(IPv4):
+    -IPv4 uses a 32-bit address space which provides 4,294,967,296 (2^32) unique addresses, but large blocks are reserved for special networking methods.
+     Address range: 0.0.0.0–255.255.255.255
+
+Internet Protocol version 6(IPv6):
+    -In IPv6, the address size was increased from 32 bits in IPv4 to 128 bits, thus providing up to 2^128 addresses.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Ping:
+    -is a computer network administration software utility used to test the reachability of a host on an Internet Protocol(IP) network. It is available for virtually all
+     operating systems that have networking capability, including most embedded network administration software.
+     Ping measures the round-trip time for messages sent from the originating host to a destination computer that are echoed back to the source. The name comes from active sonar
+     terminology that sends a pulse of sound and listens for the echo to detect objects under water.
+     Ping operates by sending Internet Control Message Protocol(ICMP) echo request packets to the target host and waiting for an ICMP echo reply. The program reports errors,
+     packet loss, and a statistical summary of the results, typically including the minimum, maximum, the mean round-trip times, and standard deviation of the mean.
+
+ipconfig:
+    -is a console application program of some computer operating systems that displays all current TCP/IP network configuration values and refreshes Dynamic Host Configuration
+     Protocol(DHCP) and Domain Name System(DNS) settings.
