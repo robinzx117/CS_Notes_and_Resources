@@ -5,3 +5,40 @@ dir: Displays a list of a directory's files and subdirectories.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Vim (text editor):
 Press Esc key and type :w to save a file in vim. One can press Esc and type :wq to save changes to a file and exit from vim. Another option is to press :x.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Emacs:
+Save file:            Ctrl + x Ctrl + s
+Close Emacs:          Ctrl + x Ctrl + c
+Run gdb inside Emacs: M-x gdb
+
+GNU Debugger command:
+    start               - begin execution, stop at main.
+    break function_name - stop program when entering function_name.
+    continue(c)         - resume execution until stopped.
+    display expr(disp)  - show value of expression whenever program stops.
+    print expr(p)       - evaluate expressed and print the result. If you put @number after an lvalue, gdb will print number values starting at the location you named. This
+                          feature is most useful with arrays—for example, if a is an array, you can do p a[0]@5 to print the first 5 elements of a.
+    step(s)             - execute one step, going inside function calls.
+    finish(fin)         - continue execution until current function returns.
+    next(n)             - resume execution until next line of code.
+    run                 - restart program and execute until stopped.
+    clear function_name - remove breakpoint previously set at function_name.
+    watch variable_name - have gdb stop when the value of a particular expression changes.
+
+    signals:
+        -whenever your program receives a signal, gdb will stop the program and give you control. There are three particularly common signals that come up during debugging.
+         1. SIGSEGV: which indicates a segmentation fault. If your program is segfaulting, then just running it in gdb can help you gather a lot of information about what is
+                     happening. When the segfault happens, gdb will stop, and your program will be on the line where the segfault happened. You can then begin inspecting the
+                     state of the program (printing out variables) to see what went wrong.
+         2. SIGABRT: which happens when you program calls abort() or fails an assert. As with segfaults, if your code is failing asserts, then running it in gdb can be
+                     incredibly useful—you will get control of the program at the point where assert causes the program to abort, and (after going up a few frames back into
+                     your own code), see exactly what was going on when the problem happened.
+         3. SIGINT:  which happens when the program is interrupted—e.g., by the user pressing Control-c (inside emacs, you have to press C-c C-c: Control-C twice). If your
+                     program is getting stuck in an infinite loop, you can run it in gdb, and then after a while, press Control-c. You can then see where the program is, and
+                     what it is doing. You are not guaranteed to be in the right place (you may interrupt the program before it gets into the infinite loop), but if you wait
+                     sufficiently long, you will typically end up where you want. You can then see what is happening, and why you are not getting the behavior you want.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+GCC:
+gcc [program_name].c –o [executable_name]
