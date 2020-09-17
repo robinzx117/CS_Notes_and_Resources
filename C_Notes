@@ -6,6 +6,28 @@ int main() {
 }
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Void functions are "void" due to the fact that they are not supposed to return values. True, but not completely.
+1. We can simply write return statement in a void fun(). In-fact it is considered a good practice(for readability of code) to write return; statement to indicate end of function.
+void fun() {
+    cout<<"Hello";
+    return;
+}
+
+2. void fun() can return another void function.
+void work() {
+    cout<<"The void function has returned a void() !!! \n";
+}
+void test() {
+    return work();
+}
+
+3. A void() can return a void value. A void() cannot return a value that can be used. But it can return a value which is void without giving an error.
+void test() {
+    cout<<"Hello";
+    return (void)"Doesn't Print";
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Structure padding:
     -in order to align the data in memory, one or more empty bytes(addresses) are inserted(or left empty) between memory addresses which are allocated for other structure
      members while memory allocation.
