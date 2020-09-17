@@ -2,6 +2,8 @@ size_t:
     -Unsigned integral type. Alias of one of the fundamental unsigned integer types.
      It is a type able to represent the size of any object in bytes: size_t is the type returned by the sizeof operator and is widely used in the standard library to represent
      sizes and counts.
+
+static const size_t npos = -1; // As a return value, it is usually used to indicate no matches.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 const: is a promise that you will not try to modify the value once set.
@@ -49,6 +51,14 @@ else
 {
     result = 表达式2;
 }
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Static arrays:
+    -are used when we know the amount of bytes in array at compile time. Static arrays are ones that reside on the stack.
+    -char arr[10];
+Dynamic array:
+    -is used where we come to know about the size on run time. Dynamic arrays is a popular name given to a series of bytes allocated on the heap.
+    -char *ptr = (char*) malloc(10); allocates a memory of 10 bytes on heap and we have taken the starting address of this series of bytes in a character pointer ptr.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 There may be cases where the memory needs of a program can only be determined during runtime. For example, when the memory needed depends on user input. On these cases,
@@ -206,6 +216,22 @@ Deep copy:
      will not affect each other in any way. Doing deep copies requires that we write our own copy constructors and overloaded assignment operators.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Abstraction:
+    -means displaying only essential information and hiding the details. Data abstraction refers to providing only essential information about the data to the outside world,
+     hiding the background details or implementation.
+    -Abstraction in classes:
+         We can implement abstraction in C++ using classes. Class helps us to group data members and member functions using available access specifiers. A class can decide
+         which data member will be visible to outside world and which is not.
+    -Abstraction in header files:
+         One more type of abstraction in C++ can be header files. For example, consider the pow() method present in math.h header file. Whenever we need to calculate power
+         of a number, we simply call the function pow() present in the math.h header file and pass the numbers as arguments without knowing the underlying algorithm according
+         to which the function is actually calculating power of numbers.
+    -Advantages of data abstraction:
+         1. Helps the user to avoid writing the low level code.
+         2. Avoids code duplication and increases reusability.
+         3. Can change internal implementation of class independently without affecting the user.
+         4. Helps to increase security of an application or program as only important details are provided to the user.
+
 Polymorphism:
     -means "many forms", and it occurs when we have many classes that are related to each other by inheritance. Inheritance lets us inherit attributes and methods from another
      class. Polymorphism uses those methods to perform different tasks. This allows us to perform a single action in different ways.
