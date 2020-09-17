@@ -16,6 +16,17 @@ Internet Protocol version 6(IPv6):
     -In IPv6, the address size was increased from 32 bits in IPv4 to 128 bits, thus providing up to 2^128 addresses.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Dynamic Host Configuration Protocol(DHCP):
+    -is an application layer protocol which is used to provide:
+         Subnet Mask(Option 1 – e.g., 255.255.255.0)
+         Router Address(Option 3 – e.g., 192.168.1.1)
+         DNS Address(Option 6 – e.g., 8.8.8.8)
+         Vendor Class Identifier(Option 43 – e.g., 'unifi' = 192.168.1.9 ##where unifi = controller)
+    -is based on a client-server model and based on discovery, offer, request, and ACK.
+    -DHCP port number for server is 67 and for the client is 68. It is a client-server protocol which uses UDP services. IP address is assigned from a pool of addresses.
+     In DHCP, the client and the server exchange mainly 4 DHCP messages in order to make a connection, also called DORA process, but there are 8 DHCP messages in the process.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Ping:
     -is a computer network administration software utility used to test the reachability of a host on an Internet Protocol(IP) network. It is available for virtually all
      operating systems that have networking capability, including most embedded network administration software.
@@ -27,3 +38,19 @@ Ping:
 ipconfig:
     -is a console application program of some computer operating systems that displays all current TCP/IP network configuration values and refreshes Dynamic Host Configuration
      Protocol(DHCP) and Domain Name System(DNS) settings.
+
+tcpdump:
+    -is a data-network packet analyzer program that runs under a command line interface. It allows the user to display TCP/IP and other packets being transmitted or received
+     over a network to which the computer is attached.
+
+Wireshark:
+    -is used for network troubleshooting, analysis, software and communications protocol development.
+
+traceroute:
+    -is a network tool used to show the route taken by packets across an IP network. It will show you each hop sequentially, and total hops required. For each hop, it will
+     display the hop#, roundtrip times, best time (ms), IP address, TTL, and country. Seeing the traceroute information can help you determine why your connections to a given
+     server might be poor and can help you identify problems. It also shows you how systems are connected to each other, letting you see how your ISP connects to the Internet
+     as well as how the target system is connected.
+
+netstat:
+    -is a command line network utility that displays network connections for TCP, routing tables, and a number of network interface and network protocol statistics.
