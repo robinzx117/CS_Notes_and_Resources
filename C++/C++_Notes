@@ -216,6 +216,9 @@ Deep copy:
      will not affect each other in any way. Doing deep copies requires that we write our own copy constructors and overloaded assignment operators.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+In C++, struct and class are exactly the same things, except for that struct defaults to public visibility and class defaults to private visibility.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Abstraction:
     -means displaying only essential information and hiding the details. Data abstraction refers to providing only essential information about the data to the outside world,
      hiding the background details or implementation.
