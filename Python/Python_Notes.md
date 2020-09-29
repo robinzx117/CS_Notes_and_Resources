@@ -44,3 +44,26 @@ Seaborn: is a higher-level interface to Matplotlib that can be used to simplify 
  various problems, Seaborn utilizes more concise paramesters for ease-of-use.
 
 Statsmodels: is a library that implements many statistical techniques.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+dir() - lists capabilities. The ones with underscores are used by Python itself, the rest are real operations that the object can perform.
+type() - it tells us something about a variable.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Parent:
+    x = 0
+    def __init__(self, num):
+        self.x = num
+        print(self.x, "constructed")
+
+    def fun(self):
+        self.x = self.x + 1
+
+    def __del__(self):
+        print("I am destructed", self.x)
+
+class Child(Parent):
+    y = 0
+    def fun2(self):
+        self.y = self.y + 1
+        self.fun()
