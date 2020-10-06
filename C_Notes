@@ -282,3 +282,11 @@ Output:
 0xfff000bd4
 0xfff000bd8
 0xfff000bdc
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+memset() is used to fill a block of memory with a particular value.
+void *memset(void *ptr, int x, size_t n);
+// ptr ==> Starting address of memory to be filled
+// x   ==> Value to be filled
+// n   ==> Number of bytes to be filled starting from ptr to be filled
+Note that ptr is a void pointer, so that we can pass any type of pointer to this function.
