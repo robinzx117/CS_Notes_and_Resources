@@ -5,7 +5,7 @@ Data Types:
 -boolean
 -integer
 -float
--string
+-string // Python 3 stores strings using Unicode.
 -list
 -None
 -complex
@@ -48,6 +48,8 @@ Statsmodels: is a library that implements many statistical techniques.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 dir() - lists capabilities. The ones with underscores are used by Python itself, the rest are real operations that the object can perform.
 type() - it tells us something about a variable.
+decode() - it is used to convert from one encoding scheme, in which argument string is encoded to the desired encoding scheme. This works opposite to the encode. It accepts
+           the encoding of the encoding string to decode it and returns the original string.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 class Parent:
