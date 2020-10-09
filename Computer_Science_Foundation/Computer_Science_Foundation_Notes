@@ -16,6 +16,12 @@ int[128] for ASCII
 int[256] for Extended ASCII
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+UTF stands for "Unicode Transformation Format." The most commonly used encodings are UTF-8, UTF-16, and UCS-2(a precursor of UTF-16 without full support for Unicode);
+GB18030 is standardized in China and implements Unicode fully, while not an official Unicode standard.
+Unicode is also a character encoding but uses variable bit encoding.
+Unicode defines 2^21 characters. Unicode is a superset of ASCII. Unicode represents more characters than ASCII.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 The Hamming weight of a string is the number of symbols that are different from the zero-symbol of the alphabet used.
 
 位运算符作用在所有的位上，并且按位运算。假设A=60，B=13,它们的二进制格式表示将如下：
