@@ -1,5 +1,21 @@
+Data -> Process -> Information
+3V: volume, velocity, variety aspects.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Database:
-    -contains many tables.
+    -contains many tables. A very large, integrated collection of data. Models real-world enterprise(Entities and Relationships).
+
+Database Management System:
+    -store
+    -retrieve
+    -manage
+
+Data Model:
+    -collection of concepts for describing data.
+    -Relational model of data: Most widely used model. Relation is shown through the table with rows and columns.
+
+Schema:
+    -description of a particular collection of data, using given data model.
 
 Relation(or table):
     -contains tuples and attributes.
@@ -11,9 +27,36 @@ Attribute(also column or field):
     -one of possibly many elements of data corresponding to the object represented by the row.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-SQL(Structured Query Language):
-    -is the language we use to issue commands to the database.
-    -CRUD(create, read, update, delete)
+Database Design:
+    -Phase 1: Requirement Analysis - What users (apps) expects from the database.
+    -Phase 2: Conceptual Database Design - Build ER (Entity-Relationship) diagram.
+    -Phase 3: Logical Database Design - Convert ER design into a relational database schema.
+
+    -Conceptual design follows requirements analysis, yields a high-level description of data to be stored.
+    -ER model popular for conceptual design. Constructs are expressive, close to the way people think about their applications.
+    -Basic constructs: entities, relationships, and attributes (of entities and relationships).
+    -Some additional constructs: weak entities, ISA hierarchies, and aggregation.
+    -Several kinds of integrity constraints can be expressed in the ER model (Key, Participation, Overlap, Covering).
+
+ER Model:
+    -Entity:     real-world object distinguishable from other objects. An entity is described using a set of attributes.
+    -Entity Set: a collection of similar entities. E.g., all employees.
+                 1.All entities in an entity set have the same set of attributes.
+                 2.Each entity set has a key.
+                 3.Each attribute has a domain.
+    -Relationship: association among 2 or more entities. A relationship is identified by its participating entities.
+    -Relationship Set: collection of similar relationships.
+    -Key constraint: 1-to-1, 1-to-Many, Many-to-Many.
+    -Participation Constraint: total vs partial(default).
+    -Weak entity: can be identifies uniquely only by considering the primary key of another(owner) entity.
+                  1.Owner entity set and week entity set must participate in a one-to-many relationship set(one owner, many weak entities).
+                  2.Weak entity set must have total participation in this identifying relationship set.
+    -Class Hierarchies: as in C++, or other PLs, attributes are inherited. If we declare A ISA B, every A entity is also considered to be a B entity.
+                        Overlap constraints: Can Joe be an Hourly_Emps as well as a Contract_Emps entity? (Allowed/Disallowed)
+                        Covering constraints: Does every Employees entity also have to be an Hourly_Emps or a Contract_Emps entity? (Yes/No)
+                        Reasons for using ISA: 1.To add descriptive attributes specific to a subclass. 2.To identify that participate in a relationship.
+    -Aggregation: used when we have to model a relationship involving(entity sets and) a relationship set. Aggregation allows us to treat a relationship set as an entity
+                  set for purposes of participation in (other) relationships.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Constructing the tables outwardly in.
@@ -25,6 +68,11 @@ Primary Key:
 Foreign Key:
     -is a column or group of columns in a relational database table that provides a link between data in two tables. It is a column(or columns) that references a column
      (most often the primary key) of another table.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+SQL(Structured Query Language):
+    -is the language we use to issue commands to the database.
+    -CRUD(create, read, update, delete)
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 PostgreSQL command:
