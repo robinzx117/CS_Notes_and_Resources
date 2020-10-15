@@ -15,28 +15,29 @@ Data Model:
     -Relational model of data: Most widely used model. Relation is shown through the table with rows and columns.
 
 Schema:
-    -description of a particular collection of data, using given data model.
+    -description of a particular collection of data, using given data model. Specifies name of relation, plus name and type of each column.
 
 Relation(or table):
-    -contains tuples and attributes.
+    -contains tuples and attributes. All rows are distinct.
+    -#Rows = cardinality, #Fields = degree/arity.
 
-Tuple(or row):
+Row(or tuple):
     -a set of fields that generally represents an "object" like a person or a music track.
 
-Attribute(also column or field):
+Column(also attribute or field):
     -one of possibly many elements of data corresponding to the object represented by the row.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Database Design:
-    -Phase 1: Requirement Analysis - What users (apps) expects from the database.
-    -Phase 2: Conceptual Database Design - Build ER (Entity-Relationship) diagram.
+    -Phase 1: Requirement Analysis - What users(apps) expects from the database.
+    -Phase 2: Conceptual Database Design - Build ER(Entity-Relationship) diagram.
     -Phase 3: Logical Database Design - Convert ER design into a relational database schema.
 
     -Conceptual design follows requirements analysis, yields a high-level description of data to be stored.
     -ER model popular for conceptual design. Constructs are expressive, close to the way people think about their applications.
     -Basic constructs: entities, relationships, and attributes (of entities and relationships).
     -Some additional constructs: weak entities, ISA hierarchies, and aggregation.
-    -Several kinds of integrity constraints can be expressed in the ER model (Key, Participation, Overlap, Covering).
+    -Several kinds of integrity constraints can be expressed in the ER model(Key, Participation, Overlap, Covering).
 
 ER Model:
     -Entity:     real-world object distinguishable from other objects. An entity is described using a set of attributes.
@@ -55,10 +56,18 @@ ER Model:
                         Overlap constraints: Can Joe be an Hourly_Emps as well as a Contract_Emps entity? (Allowed/Disallowed)
                         Covering constraints: Does every Employees entity also have to be an Hourly_Emps or a Contract_Emps entity? (Yes/No)
                         Reasons for using ISA: 1.To add descriptive attributes specific to a subclass. 2.To identify that participate in a relationship.
-    -Aggregation: used when we have to model a relationship involving(entity sets and) a relationship set. Aggregation allows us to treat a relationship set as an entity
+    -Aggregation: used when we have to model a relationship involving (entity sets and) a relationship set. Aggregation allows us to treat a relationship set as an entity
                   set for purposes of participation in (other) relationships.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Integrity Constraints: condition that must be true for any instance of the database.
+                       -ICs are specified when schema is defined.
+                       -ICs are checked when relations are modified.
+                       -A legal instance of a relation is one that satisfied all specified ICs.
+                       -DBMS should not allow illegal instances.
+                       -If the DBMS check ICs, stored data is more faithful to real-world meaning.
+                       -Avoids data entry errors, too!
+
 Constructing the tables outwardly in.
 
 Primary Key:
@@ -67,12 +76,17 @@ Primary Key:
 
 Foreign Key:
     -is a column or group of columns in a relational database table that provides a link between data in two tables. It is a column(or columns) that references a column
-     (most often the primary key) of another table.
+     (most often the primary key) of another table. If all foreign key constraints are enforced, referential integrity is achieved, i.e., no dangling references.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 SQL(Structured Query Language):
     -is the language we use to issue commands to the database.
     -CRUD(create, read, update, delete)
+
+SQL support all 4 options on deletes and updates:
+    -Default is NO ACTION (delete/update is rejected).
+    -CASCADE (also delete all tuples that refer to deleted tuple).
+    -SET NULL/SET DEFAULT (sets foreign key value of referencing tuple).
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 PostgreSQL command:
