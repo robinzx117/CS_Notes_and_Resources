@@ -1,5 +1,11 @@
 Data -> Process -> Information
 3V: volume, velocity, variety aspects.
+
+Spatial Data:
+    -Very tied to the physical space.
+    -Multi-dimensional.
+    -Complex geometrical shapes.
+    -New query API.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Database:
@@ -79,6 +85,12 @@ Foreign Key:
      (most often the primary key) of another table. If all foreign key constraints are enforced, referential integrity is achieved, i.e., no dangling references.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Query Language:
+Procedural/Imperative Language: Relational Algebra
+    -Instructs the system to perform a sequence of operators to compute a result.
+Non-Procedural/Declarative Language: Relational Calculus, SQL
+    -Tells what data is to be retrieved but does not tell the system how to retrieve the data.
+
 SQL(Structured Query Language):
     -is the language we use to issue commands to the database.
     -CRUD(create, read, update, delete)
@@ -87,6 +99,10 @@ SQL support all 4 options on deletes and updates:
     -Default is NO ACTION (delete/update is rejected).
     -CASCADE (also delete all tuples that refer to deleted tuple).
     -SET NULL/SET DEFAULT (sets foreign key value of referencing tuple).
+
+SELECT [DISTINCT] target-list
+FROM relation-list
+WHERE qualification
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 PostgreSQL command:
