@@ -19,6 +19,11 @@ Each string in the array is called a command-line argument. Command-line argumen
 without recompiling it.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Main difference between .equals() method and == operator is that one is method and other is operator. We can use == operator for reference comparison (address comparison)
+and .equals() method for content comparison. In simple words, == checks if both objects point to the same memory location whereas .equals() evaluates to the comparison of
+values in the objects.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 集合接口
 1.Collection
 Collection是最基本的集合接口，一个Collection代表一组Object，即Collection的元素, Java不提供直接继承自Collection的类，只提供继承于的子接口
