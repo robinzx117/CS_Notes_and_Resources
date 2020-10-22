@@ -85,6 +85,34 @@ Foreign Key:
      (most often the primary key) of another table. If all foreign key constraints are enforced, referential integrity is achieved, i.e., no dangling references.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Page access cost is usually the dominant cost of database operations.
+
+Alternative File Organizations：
+    Heap Files:
+     -Random order.
+     -Suitable when typical access is a file scan retrieving all records.
+     -Advantages:
+      Efficient -for bulk loading data.
+                -for relatively small relations as indexing overheads are avoided.
+                -when queries that need to fetch large proportion of stored records.
+     -Disadvantages:
+      Not Efficient -for selective queries.
+                    -for sorting, may be time-consuming.
+
+    Sorted Files:
+     -Best if records must be retrieved in some order, or only a range of records is needed.
+
+    Indexes:
+     -Data structures to organize records via trees or hashing.
+     -Speeds up selections on the search key fields.
+     -Any subset of the fields of a relation can be the search key for an index on the relation.
+     -An index contains a collection of data entries, and supports efficient retrieval of all data entries k* with a given key value k.
+     -A file can be clustered on at most one search key.
+      Hash-Based Indexes:
+       -Good for equality selections.
+       -Hashing function h: h(r) = bucket in which (data entry for) record r belongs. h looks at the search key fields of r.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Query Language:
 Procedural/Imperative Language: Relational Algebra
     -Instructs the system to perform a sequence of operators to compute a result.
