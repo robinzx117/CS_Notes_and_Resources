@@ -10,6 +10,9 @@ Spatial Data:
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Database:
     -contains many tables. A very large, integrated collection of data. Models real-world enterprise(Entities and Relationships).
+    -is stored as a collection of files. Each file is a sequence of records. A record is a sequence of fields.
+     one file   <---> one table
+     one record <---> one tuple
 
 Database Management System:
     -store
