@@ -116,6 +116,27 @@ Alternative File Organizations：
        -Hashing function h: h(r) = bucket in which (data entry for) record r belongs. h looks at the search key fields of r.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+A transaction is the DBMS's abstract view of a user's program: a sequence of reads and writes.
+
+ATOMICITY all or nothing:
+    -A transaction might commit after completing all its actions, or it could abort after executing some actions.
+    -Always executing all actions in one step, or not executing any actions at all.
+    -DBMS logs all actions so that it can undo the actions of aborted transactions.
+
+CONSISTENCY no violation of integrity constraints:
+    -A transaction which executes alone against a consistent database leaves it in a consistent state.
+    -Transactions do not violate database integrity constraints.
+    -Transactions are correct programs.
+
+ISOLATION concurrent changes invisible->serializable:
+    -Serializability:    If several transactions are executed concurrently, the results must be the same as if they were executed serially in some order.
+    -Incomplete results: An incomplete transaction cannot reveal its results to other transactions before its commitment.
+
+DURABILITY committed updates persist:
+    -Once a transaction commits, the system must guarantee that the results of its operations will never be lost, in spite of subsequent failures.
+    -Database recovery.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Query Language:
 Procedural/Imperative Language: Relational Algebra
     -Instructs the system to perform a sequence of operators to compute a result.
@@ -137,6 +158,7 @@ WHERE qualification
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 PostgreSQL command:
+psql -U postgres (the password is the one set during the installation)
 \c database_name; - Connect to a specific database.
 \dt               - Lists all tables in a current database.
 \q                - To quit the psql.
