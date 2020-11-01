@@ -106,14 +106,19 @@ Alternative File Organizations：
      -Best if records must be retrieved in some order, or only a range of records is needed.
 
     Indexes:
+     -Search key + Data Reference
      -Data structures to organize records via trees or hashing.
      -Speeds up selections on the search key fields.
      -Any subset of the fields of a relation can be the search key for an index on the relation.
      -An index contains a collection of data entries, and supports efficient retrieval of all data entries k* with a given key value k.
      -A file can be clustered on at most one search key.
-      Hash-Based Indexes:
-       -Good for equality selections.
-       -Hashing function h: h(r) = bucket in which (data entry for) record r belongs. h looks at the search key fields of r.
+     -Data entries contain the addresses of records.
+
+     1.Hash-Based Indexes:
+         -Good for equality selections.
+         -Hashing function h: h(r) = bucket in which (data entry for) record r belongs. h looks at the search key fields of r.
+
+     2.B+ Tree
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Transaction:
