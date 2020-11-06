@@ -225,8 +225,38 @@ FROM relation-list
 WHERE qualification
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+cursor:
+    -is a control structure that enables traversal over the records in a database. Cursors facilitate subsequent processing in conjunction with the traversal, such as retrieval,
+     addition and removal of database records. The database cursor characteristic of traversal makes cursors akin to the programming language concept of iterator.
+
 PostgreSQL command:
 psql -U postgres (the password is the one set during the installation)
 \c database_name; - Connect to a specific database.
 \dt               - Lists all tables in a current database.
 \q                - To quit the psql.
+
+psycopg:
+    -Psycopg is the most popular PostgreSQL database adapter for the Python programming language. Its main features are the complete implementation of the Python DB API 2.0
+     specification and the thread safety (several threads can share the same connection). It was designed for heavily multi-threaded applications that create and destroy lots
+     of cursors and make a large number of concurrent INSERTs or UPDATEs.
+
+    connect():
+        -To connect to the database, you use the connect() function of the psycopg2 module.
+        -The connect() function creates a new database session and returns a new instance of the connection class. By using the connection object, you can create a new cursor to
+         execute any SQL statements.
+        -To call the connect() function, you specify the PostgreSQL database parameters as a connection string and pass it to the function like this:
+         conn = psycopg2.connect("dbname=name user=postgres password=postgres")
+        -conn.commit() make the changes to the database persistent.
+
+    cursor = connection.cursor():
+        -Using connection.cursor() we can create a cursor object which allows us to execute PostgreSQL command through Python source code. We can create as many cursors as we
+         want from a single connection object. Cursors created from the same connection are not isolated, i.e., any changes done to the database by a cursor are immediately
+         visible by the other cursors. Cursors are not thread-safe.
+        -After this, we printed PostgreSQL Connection properties using a connection.get_dsn_parameters().
+
+    cursor.execute():
+        -Using the cursor's execute method we can execute a database operation or query. Execute method takes a SQL query as a parameter. We can retrieve query result using
+         cursor methods such as fetchone(), fetchmany(), fetcthall().
+
+    cursor.close() and connection.close():
+        -It is always good practice to close the cursor and connection object once your work gets completed to avoid database issues.
