@@ -16,6 +16,10 @@ Internet Protocol version 6(IPv6):
     -In IPv6, the address size was increased from 32 bits in IPv4 to 128 bits, thus providing up to 2^128 addresses.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+network host:
+    -is a computer or other device connected to a computer network. A host may work as a server offering information resources, services, and applications to users or other
+     hosts on the network. Hosts are assigned at least one network address.
+
 Dynamic Host Configuration Protocol(DHCP):
     -is an application layer protocol which is used to provide:
          Subnet Mask(Option 1 – e.g., 255.255.255.0)
