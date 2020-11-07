@@ -92,27 +92,27 @@ Page access cost is usually the dominant cost of database operations.
 
 Alternative File Organizations：
     Heap Files:
-     -Random order.
-     -Suitable when typical access is a file scan retrieving all records.
-     -Advantages:
-      Efficient -for bulk loading data.
-                -for relatively small relations as indexing overheads are avoided.
-                -when queries that need to fetch large proportion of stored records.
-     -Disadvantages:
-      Not Efficient -for selective queries.
-                    -for sorting, may be time-consuming.
+        -Random order.
+        -Suitable when typical access is a file scan retrieving all records.
+        -Advantages:
+            Efficient -for bulk loading data.
+                      -for relatively small relations as indexing overheads are avoided.
+                      -when queries that need to fetch large proportion of stored records.
+        -Disadvantages:
+            Not Efficient -for selective queries.
+                          -for sorting, may be time-consuming.
 
     Sorted Files:
-     -Best if records must be retrieved in some order, or only a range of records is needed.
+        -Best if records must be retrieved in some order, or only a range of records is needed.
 
     Indexes:
-     -Search key + Data Reference
-     -Data structures to organize records via trees or hashing.
-     -Speeds up selections on the search key fields.
-     -Any subset of the fields of a relation can be the search key for an index on the relation.
-     -An index contains a collection of data entries, and supports efficient retrieval of all data entries k* with a given key value k.
-     -A file can be clustered on at most one search key.
-     -Data entries contain the addresses of records.
+        -Search key + Data Reference
+        -Data structures to organize records via trees or hashing.
+        -Speeds up selections on the search key fields.
+        -Any subset of the fields of a relation can be the search key for an index on the relation.
+        -An index contains a collection of data entries, and supports efficient retrieval of all data entries k* with a given key value k.
+        -A file can be clustered on at most one search key.
+        -Data entries contain the addresses of records.
 
      1.Hash-Based Indexes:
          -Good for equality selections.
@@ -154,10 +154,10 @@ Conflict Serializable Schedules:
 Schedule S is conflict serializable if S is conflict equivalent to some serial schedule.
 
 Strict Two-Phase Locking (Strict 2PL) Protocol:
--Each transaction must obtain a shared lock on object before reading, and an exclusive lock on object before writing.
--All locks held by a transaction are released when the transaction completes.
--Strict 2PL allows only serializable schedules.
--It simplifies transaction aborts.
+    -Each transaction must obtain a shared lock on object before reading, and an exclusive lock on object before writing.
+    -All locks held by a transaction are released when the transaction completes.
+    -Strict 2PL allows only serializable schedules.
+    -It simplifies transaction aborts.
 
 Lock manager:
     -Lock and unlock requests are handled by the lock manager.
@@ -203,6 +203,56 @@ There are 3 phases in the ARIES(Algorithm for Recovery and Isolation Exploiting 
 3.Undo
 
 Concurrency control and recovery are among the most important functions provided by a DBMS.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Distribution: Sharing information and services: 1.Availability 2.Scalability(volume and the number of users served) 3.Reliability/Fault Tolerance 4.Transparency
+
+Distributed Database System:
+    -A collection of multiple, logically interrelated databases distributed over a computer network.
+    -The software that manages the DDB and provides an access mechanism that makes this distribution transparent to the users.
+    -Distributed DBMS Promises:
+        1.Transparent management of distributed, fragmented, and replicated data.
+        2.Improved reliability/availability through distributed transactions.
+        3.Improved performance.
+        4.Easier and more economical system expansion.
+
+Transparency: Separation of the higher level semantics of a system from the lower level implementation issues.
+              Fundamental issue is to provide data independence in the distributed environment.
+
+Fragmentation Alternatives: 1.Horizontal 2.Vertical
+              Properties:
+                  -Completeness: Decomposition of relation R into fragments R1, R2, ..., Rn is complete if and only if each data item in R can also be found in some Ri.
+                  -Reconstruction: If relation R is decomposed into fragments R1, R2, ..., Rn, then there should exist some relational operator ∇ such that R = ∇1≤i≤nRi.
+                  -Disjointness: If relation R is decomposed into fragments R1, R2, ..., Rn, and data item di is in Rj, then di should not be in any other fragment Rk (k≠j).
+              Problem Statement: F={F1, F2, …, Fn} fragments, S={S1, S2, …, Sm} network sites, Q={q1, q2,…, qq} applications. Find the "optimal" distribution of F to S.
+              Optimality: 1.Minimal cost 2.Performance(Minimal query response time or maximum throughput).
+
+Replication: 1.Increased availability 2.Faster query evaluation 3.Updates are challenging
+             Potentially improved performance: 1.proximity of data to its points of use 2.requires some support for fragmentation and replication
+             Allocation Alternatives:
+                 -Non-replicated: partitioned: each fragment resides at only one site.
+                 -Replicated: 1.fully replicated: each fragment at each site.
+                              2.partially replicated: each fragment at some of the sites(most of the databases these days).
+             Rule of Thumb: if (read-only queries/update queries) >> 1, replication is advantageous, otherwise replication may cause problems.
+
+Query Processing in a DDBMS: High level user query -> Query Processor -> Low-level data manipulation commands for D-DBMS
+                             Query language that is used: SQL
+                             Query execution methodology: The steps that one goes through in executing high-level(declarative) user queries.
+                             Query optimization:
+                                 Cost-Based Optimization:
+                                     Solution Space: The set of equivalent algebra expressions(query trees).
+                                     Cost Function(in terms of time):  1.I/O cost+CPU cost+communication cost.
+                                                                       2.These might have different weights in different distributed environments(LAN vs WAN).
+                                                                       3.Can also maximize throughput.
+                                     Search algorithm: 1.How do we move inside the solution space?
+                                                       2.Exhaustive search, heuristic algorithms (iterative improvement, simulated annealing, genetic,…)
+                             Query Processing:
+                                 Decomposition: Same as in centralized system. 1.Normalization(Convert from general language to a "standard" form(e.g., Relational Algebra))
+                                                                               2.Eliminating redundancy
+                                                                               3.Algebraic rewriting: After decomposition: One or more algebraic query trees on relations.
+                                                                                                      Localization: Replace relations by corresponding fragments.
+                                 Localization: 1.Start with query 2.Replace relations by fragments 3.Push ∪ up or π,σ down 4.Simplify: eliminate unnecessary operations
+                                 Optimization
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Query Language:
