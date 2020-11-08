@@ -238,21 +238,59 @@ Replication: 1.Increased availability 2.Faster query evaluation 3.Updates are ch
 Query Processing in a DDBMS: High level user query -> Query Processor -> Low-level data manipulation commands for D-DBMS
                              Query language that is used: SQL
                              Query execution methodology: The steps that one goes through in executing high-level(declarative) user queries.
-                             Query optimization:
-                                 Cost-Based Optimization:
-                                     Solution Space: The set of equivalent algebra expressions(query trees).
-                                     Cost Function(in terms of time):  1.I/O cost+CPU cost+communication cost.
-                                                                       2.These might have different weights in different distributed environments(LAN vs WAN).
-                                                                       3.Can also maximize throughput.
-                                     Search algorithm: 1.How do we move inside the solution space?
-                                                       2.Exhaustive search, heuristic algorithms (iterative improvement, simulated annealing, genetic,…)
                              Query Processing:
                                  Decomposition: Same as in centralized system. 1.Normalization(Convert from general language to a "standard" form(e.g., Relational Algebra))
                                                                                2.Eliminating redundancy
                                                                                3.Algebraic rewriting: After decomposition: One or more algebraic query trees on relations.
                                                                                                       Localization: Replace relations by corresponding fragments.
                                  Localization: 1.Start with query 2.Replace relations by fragments 3.Push ∪ up or π,σ down 4.Simplify: eliminate unnecessary operations
-                                 Optimization
+                                 Optimization:
+                                     Solution Space: The set of equivalent algebra expressions(query trees).
+                                     Cost Function(in terms of time):  1.I/O cost+CPU cost+communication cost.
+                                                                       2.These might have different weights in different distributed environments(LAN vs WAN).
+                                                                       3.Can also maximize throughput.
+                                     Search algorithm: 1.How do we move inside the solution space?
+                                                       2.Exhaustive search, heuristic algorithms (iterative improvement, simulated annealing, genetic,…)
+                                 Optimization Statistics: Primary cost factor: size of intermediate relations(Need to estimate their sizes).
+                                                          Make them precise more costly to maintain.
+                                                          Simplifying assumption: uniform distribution of attribute values in a relation.
+                                 Query Separation: Separate query into 2 or more steps. Optimize each step independently.
+                                 Decompose query into：Local processing -> Simple query(or queries) -> Final processing.
+                                 Simple Query: Relations have a single attribute. Output has a single attribute.
+
+A distributed database system does not need to be a parallel database system, but it can be.
+
+Parallel DBMS:
+    -Pipeline  Parallelism: many machines each doing one step in a multi-step process.
+     Partition Parallelism: many machines doing the same thing to different pieces of data.
+    -Speed-Up: More resources means proportionally less time for given amount of data.
+     Scale-Up: If resources increased in proportion to increase in data size, time is constant.
+
+Parallel Database Architectures:
+    -Shared Memory(SMP)-centralized: 1.Easy to program 2.Expensive to build 3.Difficult to scaleup
+    -Shared Disk-centralized
+    -Shared Nothing(network): 1.Hard to program 2.Cheap to build 3.Easy to scaleup
+
+Different Types of DBMS parallelism(query processing in a database happens by running operators on the data):
+    -Intra-operator parallelism: get all machines working to compute a given operation(Operators: scan, sort, join).
+    -Inter-operator parallelism: each operator may run concurrently on a different site(exploits pipelining).
+    -Inter-query parallelism: different queries run on different sites.
+
+Data Partition(partitioning a table):
+    -Range
+    -Hash
+    -Round Robin
+
+Partial Scans: Scan in parallel, and merge. Selection may not require all sites for range or hash partitioning. Indexes can be built at each partition.
+Parallel Sorting:
+    -Scan in parallel, and range partition as you go.
+    -As tuples come in, begin "local" sorting on each.
+    -Resulting data is sorted, and range-partitioned.
+    -Problem: skew.
+    -Solution: "sample" the data at start to determine partition positions.
+Parallel Joins:
+    -Nested loop: Each outer tuple must be compared with each inner tuple that might join. Easy for range partitioning on join columns, hard otherwise.
+    -Sort-Merge(or plain MergeJoin): Sorting gives range partitioning. Merging partitioned tables is local.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Query Language:
