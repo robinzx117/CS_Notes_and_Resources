@@ -69,3 +69,23 @@ class Child(Parent):
     def fun2(self):
         self.y = self.y + 1
         self.fun()
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Python uses C-style string formatting to create new, formatted strings. The "%" operator is used to format a set of variables enclosed in a "tuple" (a fixed size list), together
+with a format string, which contains normal text together with "argument specifiers", special symbols like "%s" and "%d".
+# This prints out "Hello, John!"
+name = "John"
+print("Hello, %s!" % name)
+
+# This prints out "John is 23 years old."
+name = "John"
+age = 23
+print("%s is %d years old." % (name, age))
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import os
+The OS module in python provides functions for interacting with the operating system. OS, comes under Python's standard utility modules. This module provides a portable way of
+using operating system dependent functionality. The *os* and *os.path* modules include many functions to interact with the file system.
+
+import sys
+This module provides access to some variables used or maintained by the interpreter and to functions that interact strongly with the interpreter. It is always available.
