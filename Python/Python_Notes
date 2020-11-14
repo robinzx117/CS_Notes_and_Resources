@@ -89,3 +89,7 @@ using operating system dependent functionality. The *os* and *os.path* modules i
 
 import sys
 This module provides access to some variables used or maintained by the interpreter and to functions that interact strongly with the interpreter. It is always available.
+
+import threading
+This module constructs higher-level threading interfaces on top of the lower level _thread module.
+threading.Thread方法可以接收两个参数，第一个是target，一般指向函数名，第二个是args，需要向函数传递的参数。
