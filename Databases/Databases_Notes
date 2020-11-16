@@ -300,26 +300,116 @@ Scaling Out(or horizontal scaling): adding more smaller/cheaper servers is a bet
          Sharding(partitioning): Scales well for both reads and writes. Distributed Query Processing is challenging.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-CAP Theorem(2 out of 3):
-    -Consistency: All copies have the same value. A consistency model determines rules for visibility and apparent order of updates. ACID is hard to achieve, moreover, it is
-     not always required.
-         Strong consistency – ACID(Atomicity, Consistency, Isolation, Durability)
-         Weak consistency   – BASE(Basically Available Soft-state Eventual consistency)
-         Eventual consistency: When no updates occur for a long period of time, eventually all updates will propagate through the system and all the nodes will be consistent.
-    -Availability: Reads and writes always succeed.
-    -Partition Tolerance: System properties hold even through failures. The system can allow partitioning across the cluster.
-
 NoSQL:
     -began in 1998
     -Disadvantages: 1.Does not fully support relational features: No join, group by, order by operations. No referential integrity constraints across partitions.
                     2.No declarative query language.
                     3.Relaxed ACID -> fewer guarantees.
                     4.No easy integration with other applications that support SQL.
+    -Requirements: 1.Availability 2.Scalability 3.Fault Tolerance 4.Manageability
+
+CAP Theorem(2 out of 3):
+    -Consistency: All copies have the same value. A consistency model determines rules for visibility and apparent order of updates. ACID is hard to achieve, moreover, it is
+                  not always required.
+         Strong consistency – ACID(Atomicity, Consistency, Isolation, Durability)
+         Weak consistency   – BASE(Basically Available Soft-state Eventual consistency)
+         Eventual consistency: When no updates occur for a long period of time, eventually all updates will propagate through the system and all the nodes will be consistent.
+    -Availability: Reads and writes always succeed.
+    -Partition Tolerance: System properties hold even through failures. The system can allow partitioning across the cluster.
+
 NoSQL Categories:
-Key-value
-Document-based
-Column-based(kind of an extension to the key-value)
-Graph-based
+1.Key-value:
+    Amazon Dynamo: Query Model: Simple R/W operations to data with unique IDs.
+                                No operation span multiple records.
+                                Data stored as binary objects of small sizes.
+                   ACID Properties: Weaker(eventual) consistency.
+                   Efficiency: Optimize for the 99.9%.
+                   Service Level Agreements: Cloud-computing and virtual hosting contracts include SLAs. Most are described in terms of mean, median, and variance of response
+                                             times(suffer from outliers).
+                   Design Decisions: Incremental Scalability: must be able to add nodes on demand with minimal impact.
+                                     Load Balancing
+                                     Data Partitioning: Use consistent hashing - Each node gets an ID from the space of keys. Nodes are arranged in a ring. Data stored on the
+                                                        first node clockwise of the current placement of the data key.
+                                     Replication: Dynamo is an "always writable" data store. Preference lists of N nodes following the associated node.
+                   System Interface: put(key, context, object)
+                                         -key: primary key associated with data object.
+                                         -context: vector clocks and history(needed for merging).
+                                         -object: data to store.
+                                     get(key)
+                   Data Versioning: Updates generate a new timestamp.
+                                    Eventual consistency - Multiple versions of the same object might co-exist.
+                                    Syntactic Reconciliation - System might be able to resolve conflicts automatically.
+                                    Semantic  Reconciliation - Conflict resolution pushed to application.
+    Pros: very fast, very scalable, simple model, able to distribute horizontally.
+    Cons: many data structures(objects) can't be easily modeled as key-value pairs.
+
+2.Document-based(the documents that are exchanged across the Internet, different websites, web applications or mobile applications):
+    The document is a unit that cannot be partitioned.
+    JSON(unstructured or semi-structure or loose structure) Sample:
+                       { _id : ObjectId("4c4ba5c0672c685e5e8aabf3"),
+                             author : "roger",
+                             date : "Sat Jul 24 2010 19:47:11 GMT-0700 (PDT)",
+                             text : "MongoSF",
+                             tags : [ "San Francisco", "MongoDB" ] }
+                         _id is unique, but can be anything you'd like.
+    JSON has powerful, but limited set of datatypes.
+
+    MongoDB:
+        -extends datatypes with Date, Int types, Id...
+        -stores data in BSON, BSON is a binary representation of JSON. Optimized for performance and navigational abilities. Also for compression purposes.
+        -See bsonspec.org
+    Unsharded Deployment:
+        -configure as a replica set for automated failover.
+        -async replication between nodes.
+        -add more secondaries to scale reads.
+    Sharded Deployment:
+        -autosharding distributes data among two or more replica sets.
+        -Mongo Config Server(s) handles distribution and balancing.
+        -transparent to applications.
+    -Advantages:
+         Documents are independent units: make performance better(related data is read contiguously off disk) and make it easier to distribute data across multiple servers
+                                          while preserving its locality.
+         Application logic is easier to write: don't have to translate between objects in your application and SQL queries. Just turn the object model directly into a document.
+         Unstructured data can be stored easily: a document contains whatever keys and values the application logic requires.
+    -Disadvantages:
+         Cannot do a join.
+         No referential integrity.
+         Not easy to integrate SQL application with document store.
+
+3.Column-based(kind of an extension to the key-value):
+    Google Big Table - build a more application-friendly storage service using these parts:
+        -1.Scheduler(Google WorkQueue)
+        -2.Google Filesystem
+        -3.Chubby Lock service: {lock/file/name} service. Coarse-grained locks, can store small amounts of data in a lock.
+        -4.Other pieces helpful but not required: MapReduce
+        Data Mode:
+            <Row, Column, Timestamp> triple for key - lookup, insert, and delete.
+            Arbitrary "columns" on a row-by-row basis: Column family: qualifier. Family is heavyweight, qualifier is lightweight. Column-oriented physical store-rows are sparse.
+            Does not support a relational model: No table-wide integrity constraints. No multi-row transactions.
+            SSTable: Immutable, sorted file of key-value pairs.
+                     Chunks of data plus an index: Index is of block ranges, it's not value.
+            Tablet: Contains some range of rows of the table. Built out of multiple SSTables.
+            Table: Multiple tablets make up the table. SSTables can be shared. Tablets do not overlap, SSTables can overlap.
+        Servers:
+            Tablet servers manage tablets, multiple tablets per server. Each tablet lives at only one server. Tablet server splits tablets that get too big.
+            Master responsible for load balancing and fault tolerance. GFS replicates data. Prefer to start tablet server on same machine that the data is already.
+
+4.Graph-based(nodes and edges or vertices and edges):
+    -Social Graph, Road Network Graph, Brain Graph, etc.
+    -Graph Query(sequence of node and edge predicates) is a regular expression: The graph query basically it's either return a path in the graph or return a pattern in the graph
+     based on some specifications that the user say in the application.
+    -Execution: Breadth First Search.
+    -The algebraic plan basically it's a finite-state machine on the graph query, that represent the graph query and it runs a bunch of selection operators. Selection operators
+     mean that you filter the nodes or the edges based on the constraints.
+    -Plan Enumeration for Query Optimization: Apply dynamic programming - complexity: O(n^3).
+     Algebraic Operators:
+         1.Select:           Find set of starting nodes.
+         2.Traverse(Expand): Traverse graph to construct paths.
+         3.Join:             Construct longer paths.
+
+Schema-Less(Document-based, Column-based, Graph-based):
+    -Pros: Schema-less data model is richer than key-value pairs: eventual consistency, many are distributed, still provide excellent performance and scalability.
+    -Cons: typically no ACID transactions or joins.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Query Language:
