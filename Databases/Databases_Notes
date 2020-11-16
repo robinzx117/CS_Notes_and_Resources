@@ -291,6 +291,35 @@ Parallel Sorting:
 Parallel Joins:
     -Nested loop: Each outer tuple must be compared with each inner tuple that might join. Easy for range partitioning on join columns, hard otherwise.
     -Sort-Merge(or plain MergeJoin): Sorting gives range partitioning. Merging partitioned tables is local.
+
+Scaling Up(or vertical scaling): make a "single" machine more powerful -> dataset is just too big.
+
+Scaling Out(or horizontal scaling): adding more smaller/cheaper servers is a better choice.
+    -Different approaches for horizontal scaling(multi-node database):
+         Master(Writes to only one machine)/Slave(Reads)
+         Sharding(partitioning): Scales well for both reads and writes. Distributed Query Processing is challenging.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+CAP Theorem(2 out of 3):
+    -Consistency: All copies have the same value. A consistency model determines rules for visibility and apparent order of updates. ACID is hard to achieve, moreover, it is
+     not always required.
+         Strong consistency – ACID(Atomicity, Consistency, Isolation, Durability)
+         Weak consistency   – BASE(Basically Available Soft-state Eventual consistency)
+         Eventual consistency: When no updates occur for a long period of time, eventually all updates will propagate through the system and all the nodes will be consistent.
+    -Availability: Reads and writes always succeed.
+    -Partition Tolerance: System properties hold even through failures. The system can allow partitioning across the cluster.
+
+NoSQL:
+    -began in 1998
+    -Disadvantages: 1.Does not fully support relational features: No join, group by, order by operations. No referential integrity constraints across partitions.
+                    2.No declarative query language.
+                    3.Relaxed ACID -> fewer guarantees.
+                    4.No easy integration with other applications that support SQL.
+NoSQL Categories:
+Key-value
+Document-based
+Column-based(kind of an extension to the key-value)
+Graph-based
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Query Language:
