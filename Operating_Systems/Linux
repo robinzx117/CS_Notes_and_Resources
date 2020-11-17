@@ -1,0 +1,5 @@
+Kali Linux is a Debian-derived Linux distribution designed for digital forensics and penetration testing.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Linux command:
+    "uname -m": displays only the machine hardware name. It shows if your system is running 32-bit(i686 or i386) or 64-bit(x86_64).
