@@ -412,6 +412,30 @@ Schema-Less(Document-based, Column-based, Graph-based):
     -Cons: typically no ACID transactions or joins.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+MapReduce System:
+    -Executes user's jobs specified as "map" and "reduce" functions.
+    -Manages work distribution & fault-tolerance.
+    -Master node: one machine that has process called the master process, and it keeps track of the MapReduce program written by the user. And it also keeps track of the
+                  cluster, how to settle the cluster, the addresses and locations of the machines. And it decides which machine runs what, at the moment, for each phase.
+     Map function: each one of them will run the same exact code defined by the application programmer. After the map phase, every map worker stores the results of the map
+                   phase on disk.
+     Data shuffle phase: or the data transfer phase. A hidden phase that is done internally by the run time. The application programmer does not see it, does not control it.
+                         It's automatically happening between the map and the reduce phase.
+     Reduce function
+
+Distributed file system(HDFS):
+    -Single namespace for entire cluster.
+    -Replicates data 3x for fault tolerance.
+    -HDFS Files split into 128MB blocks.
+    -Blocks replicated across several DataNodes(the nodes that contain the data).
+    -NameNode(centralized) is a node or a machine that stores metadata about the blocks.
+    -Optimized for large files, sequential reads.
+    -Files are append-only(can only append content or data to the file and you can not change the file, can not go back or update the file).
+
+Hadoop is an implementation of the MapReduce paradigm, it relies on the Hadoop File System. In Hadoop, you write the map and the reduce functions using Java code. And you build
+a jar file.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Query Language:
 Procedural/Imperative Language: Relational Algebra
     -Instructs the system to perform a sequence of operators to compute a result.
