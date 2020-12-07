@@ -414,14 +414,22 @@ Schema-Less(Document-based, Column-based, Graph-based):
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 MapReduce System:
     -Executes user's jobs specified as "map" and "reduce" functions.
-    -Manages work distribution & fault-tolerance.
+    -Manages work distribution and fault-tolerance.
+     If a task crashes: Retry on another node. OK for a map because it had no dependencies. OK for reduce because map outputs are on disk.
+     If the same task repeatedly fails, fail the job.
+     If a node crashes: relaunch its current tasks on other nodes.
+                        relaunch any map the node previously ran(necessary because their output files were lost along with the crashed node).
     -Master node: one machine that has process called the master process, and it keeps track of the MapReduce program written by the user. And it also keeps track of the
                   cluster, how to settle the cluster, the addresses and locations of the machines. And it decides which machine runs what, at the moment, for each phase.
      Map function: each one of them will run the same exact code defined by the application programmer. After the map phase, every map worker stores the results of the map
-                   phase on disk.
+                   phase on local disk before serving to reducer. Allows having more reducers than nodes. Allows recovery if a reducer crashes. Preferentially placed on same
+                   node or same rack as their input block. Push computation to data, minimize network use.
      Data shuffle phase: or the data transfer phase. A hidden phase that is done internally by the run time. The application programmer does not see it, does not control it.
                          It's automatically happening between the map and the reduce phase.
      Reduce function
+    -Programming Model：Data type: key-value records.
+                        Map function: (Key1, Value1) -> list(Key2, Value2)
+                        Reduce function: (Key2, list(Value2)) -> list(Key3, Value3)
 
 Distributed file system(HDFS):
     -Single namespace for entire cluster.
