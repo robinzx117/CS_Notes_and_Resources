@@ -442,6 +442,10 @@ Distributed file system(HDFS):
 
 Hadoop is an implementation of the MapReduce paradigm, it relies on the Hadoop File System. In Hadoop, you write the map and the reduce functions using Java code. And you build
 a jar file.
+
+Apache Spark:
+    -a cluster computer system, a shared nothing architecture.
+    -rely on Resilient Distributed Dataset(RDD).
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Query Language:
