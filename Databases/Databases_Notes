@@ -528,6 +528,18 @@ Deployment Models:
     -Hybrid Cloud: The cloud infrastructure is:   composition of two or more distinct cloud infrastructures(private, community, or public) - remain unique entities.
                                                   bound together by standardized or proprietary technology that enables data and application portability, e.g., cloud
                                                   bursting for load-balancing between clouds.
+
+Amazon Web Services(AWS):
+    Compute:
+        -Amazon Elastic Cloud Computing(EC2) (launched in August 2006)
+    Storage:
+        -Amazon Elastic Block Storage(EBS)
+        -Amazon Simple Storage Service(S3) (launched in March 2006)
+        -Amazon SimpleDB
+        -Amazon RDS
+    Messaging:
+        -Simple Queue Service(SQS)
+        -Simple Notification Service(SNS)
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Query Language:
