@@ -540,6 +540,11 @@ Amazon Web Services(AWS):
     -Messaging:
          Simple Queue Service(SQS)
          Simple Notification Service(SNS)
+
+AWS Command Line Interface:
+    A unified tool for managing AWS services.
+    Available for Windows, Linux, OS X, Unix.
+    Create an IAM user for using the command lines.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Query Language:
