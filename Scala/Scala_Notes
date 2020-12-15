@@ -1,3 +1,13 @@
+The entry point into all functionality in Spark is the SparkSession class. To create a basic SparkSession, just use SparkSession.builder():
+
+import org.apache.spark.sql.SparkSession
+
+val spark = SparkSession
+  .builder()
+  .appName("Spark SQL basic example")
+  .config("spark.some.config.option", "some-value")
+  .getOrCreate()
+
 import org.apache.spark.sql.functions._
 df.orderBy(asc("col1"));
 df.sort(desc("col1"));
