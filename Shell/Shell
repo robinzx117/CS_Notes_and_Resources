@@ -1,0 +1,10 @@
+Command shell:
+    cls: Clears the Command Prompt window.
+    dir: Displays a list of a directory's files and subdirectories.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Bash(Bourne-Again SHell):
+    -ls
+    -cat:    short for "concatenate". Display contents of file.
+    -exit N: Where N is the Bash exit code (or exit status) used to exit the script during its execution. Different values of N are used to indicate if the script exits with
+             success or failure.
