@@ -6,5 +6,10 @@ Command shell:
 Bash(Bourne-Again SHell):
     -ls
     -cat:    short for "concatenate". Display contents of file.
-    -exit N: Where N is the Bash exit code (or exit status) used to exit the script during its execution. Different values of N are used to indicate if the script exits with
+    -exit N: Where N is the Bash exit code(or exit status) used to exit the script during its execution. Different values of N are used to indicate if the script exits with
              success or failure.
+    -2>/dev/null: a number 1 = standard out(i.e. STDOUT). A number 2 = standard error(i.e. STDERR). If a number isn't explicitly given, then number 1 is assumed by the
+                  shell(bash). /dev/null is the standard Linux device where you send output that you want ignored.
+    -grep: searches for PATTERNS in each FILE. PATTERNS is one or more patterns separated by newline characters, and grep prints each line that matches a pattern.
+           Typically PATTERNS should be quoted when grep is used in a shell command.
+           -e PATTERNS
