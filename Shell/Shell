@@ -4,6 +4,9 @@ Command shell:
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Bash(Bourne-Again SHell):
+    -sudo: is a program for Unix-like computer operating systems that allows users to run programs with the security privileges of another user, by default the superuser.
+           -sudo apt-get update
+           -sudo apt-get upgrade
     -ls
     -cat:    short for "concatenate". Display contents of file.
     -exit N: Where N is the Bash exit code(or exit status) used to exit the script during its execution. Different values of N are used to indicate if the script exits with
@@ -13,3 +16,4 @@ Bash(Bourne-Again SHell):
     -grep: searches for PATTERNS in each FILE. PATTERNS is one or more patterns separated by newline characters, and grep prints each line that matches a pattern.
            Typically PATTERNS should be quoted when grep is used in a shell command.
            -e PATTERNS
+    -wget: the non-interactive network downloader.
