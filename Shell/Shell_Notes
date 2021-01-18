@@ -24,6 +24,10 @@ Bash(Bourne-Again SHell):
             文件或目录的权限。
     -uname -m: displays only the machine hardware name. It shows if your system is running 32-bit(i686 or i386) or 64-bit(x86_64).
 
+Shebang（也称为Hashbang）是一个由井号和叹号构成的字符序列#!，其出现在文本文件的第一行的前两个字符。在文件中存在Shebang的情况下，类Unix操作系统的程序载入器会分析Shebang后的内容，将这些内容
+作为解释器指令，并调用该指令，并将载有Shebang的文件路径作为该解释器的参数。
+例如，以指令#!/bin/sh开头的文件在执行时会实际调用/bin/sh程序（通常是Bourne shell或兼容的shell，例如bash、dash等）来执行。这行内容也是shell脚本的标准起始行。
+
 Z shell(Zsh):
     -is a Unix shell that can be used as an interactive login shell and as a command interpreter for shell scripting. Zsh is an extended Bourne shell with many improvements,
      including some features of Bash, ksh, and tcsh.
