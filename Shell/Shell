@@ -8,6 +8,9 @@ Bash(Bourne-Again SHell):
            -sudo apt-get update
            -sudo apt-get upgrade
     -ls
+    -rm: to remove an empty directory, use either rmdir or rm -d followed by the directory name:
+         rmdir dirname
+         rm -d dirname
     -cat:    short for "concatenate". Display contents of file.
     -exit N: Where N is the Bash exit code(or exit status) used to exit the script during its execution. Different values of N are used to indicate if the script exits with
              success or failure.
@@ -17,3 +20,9 @@ Bash(Bourne-Again SHell):
            Typically PATTERNS should be quoted when grep is used in a shell command.
            -e PATTERNS
     -wget: the non-interactive network downloader.
+    -chmod:（change mode）是控制用户对文件的权限的命令。Linux/Unix的文件调用权限分为三级：文件所有者（Owner）、用户组（Group）、其它用户（Other Users）。只有文件所有者和超级用户拥有修改
+            文件或目录的权限。
+
+Z shell(Zsh):
+    -is a Unix shell that can be used as an interactive login shell and as a command interpreter for shell scripting. Zsh is an extended Bourne shell with many improvements,
+     including some features of Bash, ksh, and tcsh.
