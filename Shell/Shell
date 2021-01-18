@@ -22,6 +22,7 @@ Bash(Bourne-Again SHell):
     -wget: the non-interactive network downloader.
     -chmod:（change mode）是控制用户对文件的权限的命令。Linux/Unix的文件调用权限分为三级：文件所有者（Owner）、用户组（Group）、其它用户（Other Users）。只有文件所有者和超级用户拥有修改
             文件或目录的权限。
+    -uname -m: displays only the machine hardware name. It shows if your system is running 32-bit(i686 or i386) or 64-bit(x86_64).
 
 Z shell(Zsh):
     -is a Unix shell that can be used as an interactive login shell and as a command interpreter for shell scripting. Zsh is an extended Bourne shell with many improvements,
