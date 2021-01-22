@@ -76,3 +76,35 @@ netstat:
 路由器(Router):
     -它是根据IP地址，将一个数据包从一个网络路由转发到另一个网络的设备。当路由器接收到数据包时，路由器会检查数据包的IP地址，并确定该数据包是要发送给自己所在的网络，还是要发送给其他网络，如果
      路由器确定数据包是发送给自己所在的网络，就接收它；如果数据包不是发送给自己所在的网络，路由器就将这些数据包转发给其他网络。
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+网络协议(Protocol):
+    -是一种特殊的软件，是计算机网络实现其功能的最基本机制。网络协议的本质是规则，即各种硬件和软件必须遵循的共同守则。网络协议并不是一套单独的软件，它融合于其他所有的软件系统中，因此可以说，协议在
+     网络中无所不在。网络协议遍及OSI通信模型的各个层次，从我们非常熟悉的TCP/IP、HTTP、FTP协议，到OSPF、IGP等协议，有上千种之多。对于普通用户而言，不需要关心太多的底层通信协议，只需要了解其通信
+     原理即可。在实际管理中，底层通信协议一般会自动工作，不需要人工干预。
+
+OSI model:
+    -Open Systems Interconnection model is a conceptual model that characterises and standardises the communication functions of a telecommunication or computing system without
+     regard to its underlying internal structure and technology. Its goal is the interoperability of diverse communication systems with standard communication protocols.
+     The model partitions the flow of data in a communication system into seven abstraction layers, from the physical implementation of transmitting bits across a communications
+     medium to the highest-level representation of data of a distributed application. Each intermediate layer serves a class of functionality to the layer above it and is served
+     by the layer below it. Classes of functionality are realized in software by standardized communication protocols.
+
+HTTP:
+    -超文本传输协议（Hypertext Transfer Protocol）是一个简单的请求-响应协议，它通常运行在TCP之上。它指定了客户端可能发送给服务器什么样的消息以及得到什么样的响应。请求和响应消息的头以ASCII
+     形式给出；而消息内容则具有一个类似MIME的格式。HTTP是基于B/S架构进行通信的，而HTTP的服务器端实现程序有httpd、nginx等，其客户端的实现程序主要是Web浏览器，例如Firefox、InternetExplorer、
+     Google chrome、Safari、Opera等，此外，客户端的命令行工具还有elink、curl等。Web服务是基于TCP的，因此为了能够随时响应客户端的请求，Web服务器需要监听在80/TCP端口。这样客户端浏览器和Web
+     服务器之间就可以通过HTTP进行通信了。
+
+Socket programming:
+    -a socket is the mechanism that most popular operating systems provide to give programs access to the network. It allows messages to be sent and received between
+     applications(unrelated processes) on different networked machines. The sockets mechanism has been created to be independent of any specific type of network. IP, however,
+     is by far the most dominant network and the most popular use of sockets.
+    -is a way of connecting two nodes on a network to communicate with each other. One socket(node) listens on a particular port at an IP, while the other socket reaches out to
+     the other to form a connection. The server forms the listener socket while the client reaches out to the server.
+    -programming with TCP/IP sockets:
+         Create the socket
+         Identify the socket
+         On the server, wait for an incoming connection
+         Send and receive messages
+         Close the socket
