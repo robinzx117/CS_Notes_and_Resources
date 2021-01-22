@@ -70,3 +70,9 @@ Operator: such as addition of integers or exclusive-or of booleans would be tran
 
 Function: or procedure, method, on the other hand, is a subprogram the (main) program would explicitly jump to during execution. That is, a new stack frame is allocated,
           register values are saved, parameters are passed and only then is the function executed. Furthermore, functions are defined by the programmer.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+File Descriptor:
+    -in Unix and related computer operating systems, a file descriptor is an abstract indicator(handle) used to access a file or other input/output resource, such as a pipe or
+     network socket. File descriptors form part of the POSIX application programming interface. A file descriptor is a non-negative integer, generally represented in the
+     C programming language as the type int(negative values being reserved to indicate "no value" or an error condition).
