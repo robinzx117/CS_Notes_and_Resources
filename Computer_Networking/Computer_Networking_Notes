@@ -108,3 +108,5 @@ Socket programming:
          On the server, wait for an incoming connection
          Send and receive messages
          Close the socket
+    -on almost all networking systems, localhost uses the IP address 127.0.0.1. That is the most commonly used IPv4 "loopback address" and it is reserved for that purpose.
+    -ports below 1024 are considered "privileged" and can only be bound to with an equally privileged user. Anything above and including 1024 is "free to use" by anyone.
