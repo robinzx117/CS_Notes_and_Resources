@@ -1,3 +1,15 @@
+网络协议(Protocol):
+    -是一种特殊的软件，是计算机网络实现其功能的最基本机制。网络协议的本质是规则，即各种硬件和软件必须遵循的共同守则。网络协议并不是一套单独的软件，它融合于其他所有的软件系统中，因此可以说，协议在
+     网络中无所不在。网络协议遍及OSI通信模型的各个层次，从我们非常熟悉的TCP/IP、HTTP、FTP协议，到OSPF、IGP等协议，有上千种之多。对于普通用户而言，不需要关心太多的底层通信协议，只需要了解其通信
+     原理即可。在实际管理中，底层通信协议一般会自动工作，不需要人工干预。
+
+OSI model:
+    -Open Systems Interconnection model is a conceptual model that characterises and standardises the communication functions of a telecommunication or computing system without
+     regard to its underlying internal structure and technology. Its goal is the interoperability of diverse communication systems with standard communication protocols.
+     The model partitions the flow of data in a communication system into seven abstraction layers, from the physical implementation of transmitting bits across a communications
+     medium to the highest-level representation of data of a distributed application. Each intermediate layer serves a class of functionality to the layer above it and is served
+     by the layer below it. Classes of functionality are realized in software by standardized communication protocols.
+
 Internet Protocol(IP):
     -is the principal communications protocol in the Internet protocol suite for relaying datagrams across network boundaries. Its routing function enables internet working, and
      essentially establishes the Internet. IP has the task of delivering packets from the source host to the destination host solely based on the IP addresses in the packet
@@ -19,7 +31,7 @@ Ethernet card:
     -also called a "network interface card"(NIC), an Ethernet adapter is a card that plugs into a slot on the motherboard and enables a computer to access an Ethernet network(LAN).
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-network host:
+Network Host:
     -is a computer or other device connected to a computer network. A host may work as a server offering information resources, services, and applications to users or other
      hosts on the network. Hosts are assigned at least one network address.
 
@@ -32,6 +44,63 @@ Dynamic Host Configuration Protocol(DHCP):
     -is based on a client-server model and based on discovery, offer, request, and ACK.
     -DHCP port number for server is 67 and for the client is 68. It is a client-server protocol which uses UDP services. IP address is assigned from a pool of addresses.
      In DHCP, the client and the server exchange mainly 4 DHCP messages in order to make a connection, also called DORA process, but there are 8 DHCP messages in the process.
+
+HTTP:
+    -超文本传输协议（Hypertext Transfer Protocol）是一个简单的请求-响应协议，它通常运行在TCP之上。它指定了客户端可能发送给服务器什么样的消息以及得到什么样的响应。请求和响应消息的头以ASCII
+     形式给出；而消息内容则具有一个类似MIME的格式。HTTP是基于B/S架构进行通信的，而HTTP的服务器端实现程序有httpd、nginx等，其客户端的实现程序主要是Web浏览器，例如Firefox、InternetExplorer、
+     Google chrome、Safari、Opera等，此外，客户端的命令行工具还有elink、curl等。Web服务是基于TCP的，因此为了能够随时响应客户端的请求，Web服务器需要监听在80/TCP端口。这样客户端浏览器和Web
+     服务器之间就可以通过HTTP进行通信了。
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Transmission Control Protocol(TCP):
+    -delivery acknowledgements
+    -retransmission
+    -delays transmission when the network is congested
+    -easy error detection
+
+User Datagram Protocol(UDP):
+    -supports bandwidth-intensive applications that tolerate packet loss
+    -less delay
+    -sends the bulk quantity of packets
+    -possibility of the data loss
+    -allows small transaction(DNS lookup)
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+集线器(Hub):
+    -是在其内部将所有的网络连通，它是一个具有多个端口的设备，用于网络设备的互连。集线器不具有智能，它不过滤任何数据，也不知道数据要发送到什么地方，集线器唯一知道的就是设备连接到它其中的一个端口。
+     当数据到达其中一个端口时，集线器会复制数据包到它所有端口，这样连接到该集线器上的所有设备都可以收到数据包。也就是说，当数据包进入集线器的某个端口时，它将被集线器重新广播到其他所有端口，即使
+     这些数据不是要发给它们的。当发生这种情况时，不仅会产生安全问题，也会在网络上造成不必要的流量，浪费带宽。
+
+交换机(Switch):
+    -它也是一个具有多个端口、用于网络设备互联的设备，但是它与集线器不同，交换机是智能的。交换机可以将称为MAC地址的物理地址存储在自己的地址表中。当数据包发送到交换机时，数据包会被直接发送到预期
+     的目的端口，而不是像集线器那样，只是将数据包重新广播到每个端口。如果这台计算机想要和另外一台计算机通信，数据包到达交换机后，交换机在自己的地址表中查看与数据包携带的目的MAC地址匹配的端口，
+     然后将数据包传送到该端口，数据包就只会发送到想要与之通信的那台计算机。这是集线器和交换机之间的主要区别。因此交换机比集线器更受欢迎，它们可以减少网络上任何不必要的流量。
+
+路由器(Router):
+    -它是根据IP地址，将一个数据包从一个网络路由转发到另一个网络的设备。当路由器接收到数据包时，路由器会检查数据包的IP地址，并确定该数据包是要发送给自己所在的网络，还是要发送给其他网络，如果
+     路由器确定数据包是发送给自己所在的网络，就接收它；如果数据包不是发送给自己所在的网络，路由器就将这些数据包转发给其他网络。
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Socket programming:
+    -a socket is the mechanism that most popular operating systems provide to give programs access to the network. It allows messages to be sent and received between
+     applications(unrelated processes) on different networked machines. The sockets mechanism has been created to be independent of any specific type of network. IP, however,
+     is by far the most dominant network and the most popular use of sockets.
+    -is a way of connecting two nodes on a network to communicate with each other. One socket(node) listens on a particular port at an IP, while the other socket reaches out to
+     the other to form a connection. The server forms the listener socket while the client reaches out to the server.
+    -programming with TCP/IP sockets:
+         Create the socket
+         Identify the socket
+         On the server, wait for an incoming connection
+         Send and receive messages
+         Close the socket
+    -on almost all networking systems, localhost uses the IP address 127.0.0.1. That is the most commonly used IPv4 "loopback address" and it is reserved for that purpose.
+    -ports below 1024 are considered "privileged" and can only be bound to with an equally privileged user. Anything above and including 1024 is "free to use" by anyone.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+checksum:
+    -检验和是存在于各种报文中的一个字段，它存在的目的是验证报文在网络传输过程中的完整性（有的数据可能在链路传输时发生0-1数据翻转，从而导致报文出错）。因此，在报文的发送端，会根据报文中的首部或数据来计算一个检验和
+     （IP报文的检验和只对首部进行计算，ICMP报文对报文首部和数据都进行计算），然后一旦接收端接受到相应报文，接收端也会对报文的首部或数据进行一次检验和计算，如果接收端算出来的检验和和发送端发送的不一样，那么接收端
+     认为报文在传输过程中出了错，于是就丢掉该报文。
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Ping:
@@ -63,55 +132,6 @@ netstat:
     -is a command line network utility that displays network connections for TCP, routing tables, and a number of network interface and network protocol statistics.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-集线器(Hub):
-    -是在其内部将所有的网络连通，它是一个具有多个端口的设备，用于网络设备的互连。集线器不具有智能，它不过滤任何数据，也不知道数据要发送到什么地方，集线器唯一知道的就是设备连接到它其中的一个端口。
-     当数据到达其中一个端口时，集线器会复制数据包到它所有端口，这样连接到该集线器上的所有设备都可以收到数据包。也就是说，当数据包进入集线器的某个端口时，它将被集线器重新广播到其他所有端口，即使
-     这些数据不是要发给它们的。当发生这种情况时，不仅会产生安全问题，也会在网络上造成不必要的流量，浪费带宽。
-
-交换机(Switch):
-    -它也是一个具有多个端口、用于网络设备互联的设备，但是它与集线器不同，交换机是智能的。交换机可以将称为MAC地址的物理地址存储在自己的地址表中。当数据包发送到交换机时，数据包会被直接发送到预期
-     的目的端口，而不是像集线器那样，只是将数据包重新广播到每个端口。如果这台计算机想要和另外一台计算机通信，数据包到达交换机后，交换机在自己的地址表中查看与数据包携带的目的MAC地址匹配的端口，
-     然后将数据包传送到该端口，数据包就只会发送到想要与之通信的那台计算机。这是集线器和交换机之间的主要区别。因此交换机比集线器更受欢迎，它们可以减少网络上任何不必要的流量。
-
-路由器(Router):
-    -它是根据IP地址，将一个数据包从一个网络路由转发到另一个网络的设备。当路由器接收到数据包时，路由器会检查数据包的IP地址，并确定该数据包是要发送给自己所在的网络，还是要发送给其他网络，如果
-     路由器确定数据包是发送给自己所在的网络，就接收它；如果数据包不是发送给自己所在的网络，路由器就将这些数据包转发给其他网络。
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-网络协议(Protocol):
-    -是一种特殊的软件，是计算机网络实现其功能的最基本机制。网络协议的本质是规则，即各种硬件和软件必须遵循的共同守则。网络协议并不是一套单独的软件，它融合于其他所有的软件系统中，因此可以说，协议在
-     网络中无所不在。网络协议遍及OSI通信模型的各个层次，从我们非常熟悉的TCP/IP、HTTP、FTP协议，到OSPF、IGP等协议，有上千种之多。对于普通用户而言，不需要关心太多的底层通信协议，只需要了解其通信
-     原理即可。在实际管理中，底层通信协议一般会自动工作，不需要人工干预。
-
-OSI model:
-    -Open Systems Interconnection model is a conceptual model that characterises and standardises the communication functions of a telecommunication or computing system without
-     regard to its underlying internal structure and technology. Its goal is the interoperability of diverse communication systems with standard communication protocols.
-     The model partitions the flow of data in a communication system into seven abstraction layers, from the physical implementation of transmitting bits across a communications
-     medium to the highest-level representation of data of a distributed application. Each intermediate layer serves a class of functionality to the layer above it and is served
-     by the layer below it. Classes of functionality are realized in software by standardized communication protocols.
-
-HTTP:
-    -超文本传输协议（Hypertext Transfer Protocol）是一个简单的请求-响应协议，它通常运行在TCP之上。它指定了客户端可能发送给服务器什么样的消息以及得到什么样的响应。请求和响应消息的头以ASCII
-     形式给出；而消息内容则具有一个类似MIME的格式。HTTP是基于B/S架构进行通信的，而HTTP的服务器端实现程序有httpd、nginx等，其客户端的实现程序主要是Web浏览器，例如Firefox、InternetExplorer、
-     Google chrome、Safari、Opera等，此外，客户端的命令行工具还有elink、curl等。Web服务是基于TCP的，因此为了能够随时响应客户端的请求，Web服务器需要监听在80/TCP端口。这样客户端浏览器和Web
-     服务器之间就可以通过HTTP进行通信了。
-
-Socket programming:
-    -a socket is the mechanism that most popular operating systems provide to give programs access to the network. It allows messages to be sent and received between
-     applications(unrelated processes) on different networked machines. The sockets mechanism has been created to be independent of any specific type of network. IP, however,
-     is by far the most dominant network and the most popular use of sockets.
-    -is a way of connecting two nodes on a network to communicate with each other. One socket(node) listens on a particular port at an IP, while the other socket reaches out to
-     the other to form a connection. The server forms the listener socket while the client reaches out to the server.
-    -programming with TCP/IP sockets:
-         Create the socket
-         Identify the socket
-         On the server, wait for an incoming connection
-         Send and receive messages
-         Close the socket
-    -on almost all networking systems, localhost uses the IP address 127.0.0.1. That is the most commonly used IPv4 "loopback address" and it is reserved for that purpose.
-    -ports below 1024 are considered "privileged" and can only be bound to with an equally privileged user. Anything above and including 1024 is "free to use" by anyone.
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Scapy:
     -is a Python program that enables the user to send, sniff and dissect and forge network packets. This capability allows construction of tools that can probe, scan or attack
      networks. In other words, Scapy is a powerful interactive packet manipulation program. It is able to forge or decode packets of a wide number of protocols, send them on the
@@ -120,3 +140,11 @@ Scapy:
 
 >>> conf.color_theme = DefaultTheme()
 >>> IP().show()
+
+from scapy.all import *
+
+def pkt_callback(pkt):
+    pkt.show() # debug statement
+
+sniff(iface="<My Interface>", prn=pkt_callback, filter="tcp", store=0)
+store=0 says not to store any packet received and prn says send the pkt to pkt_callback.
