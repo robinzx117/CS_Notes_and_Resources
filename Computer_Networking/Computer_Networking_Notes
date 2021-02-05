@@ -130,6 +130,9 @@ traceroute:
 
 netstat:
     -is a command line network utility that displays network connections for TCP, routing tables, and a number of network interface and network protocol statistics.
+
+nmap:
+    -O: enable OS detection.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Scapy:
