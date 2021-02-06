@@ -4,3 +4,12 @@ Attack-Defence CTF
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Man-in-the-middle attack(MITM):
     -is a cyberattack where the attacker secretly relays and possibly alters the communications between two parties who believe that they are directly communicating with each other.
+     MITM attacks usually imply an active adversary: one who will change the contents of the message before passing it on. While in sniffing an eavesdropper will be passive(that is
+     they will not modify the traffic).
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Reverse engineering tools:
+    IDA Pro(Hex Rays)
+    Radare2
+    Hopper
+    Ghidra
