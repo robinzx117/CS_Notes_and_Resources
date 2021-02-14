@@ -1,1 +1,6 @@
 Kali Linux is a Debian-derived Linux distribution designed for digital forensics and penetration testing.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+/bin:
+    -is a standard subdirectory of the root directory in Unix-like operating systems that contains the executable(i.e., ready to run) programs that must be available in order to
+     attain minimal functionality for the purposes of booting(i.e., starting) and repairing a system.
