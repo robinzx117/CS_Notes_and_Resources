@@ -4,6 +4,8 @@ Command shell:
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Bash(Bourne-Again SHell):
+    -./:  current directory.
+    -../: parent's directory.
     -sudo: is a program for Unix-like computer operating systems that allows users to run programs with the security privileges of another user, by default the superuser.
            -sudo apt-get update
            -sudo apt-get upgrade
@@ -23,7 +25,8 @@ Bash(Bourne-Again SHell):
     -chmod:（change mode）是控制用户对文件的权限的命令。Linux/Unix的文件调用权限分为三级：文件所有者（Owner）、用户组（Group）、其它用户（Other Users）。只有文件所有者和超级用户拥有修改
             文件或目录的权限。
     -uname -m: displays only the machine hardware name. It shows if your system is running 32-bit(i686 or i386) or 64-bit(x86_64).
-
+    -less: is a program similar to more, but it has many more features. Less does not have to read the entire input file before starting, so with large input files it starts up
+           faster than text editors like vi.
 Shebang（也称为Hashbang）是一个由井号和叹号构成的字符序列#!，其出现在文本文件的第一行的前两个字符。在文件中存在Shebang的情况下，类Unix操作系统的程序载入器会分析Shebang后的内容，将这些内容
 作为解释器指令，并调用该指令，并将载有Shebang的文件路径作为该解释器的参数。
 例如，以指令#!/bin/sh开头的文件在执行时会实际调用/bin/sh程序（通常是Bourne shell或兼容的shell，例如bash、dash等）来执行。这行内容也是shell脚本的标准起始行。
